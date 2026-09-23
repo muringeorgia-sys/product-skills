@@ -1,0 +1,7 @@
+# Only these skills are versioned; everything else in ~/.claude/skills stays local
+/*
+!/.gitignore
+!/README.md
+!/prd/
+!/analytics-spec/
+!/weekly-report/
