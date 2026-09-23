@@ -34,16 +34,6 @@ Restart the Claude Code session, then call `/prd`, `/analytics-spec` or `/weekly
 
 To get the latest version, run the same commands again.
 
-## Updating
-
-Updates are manual. Edit the skill locally, then:
-
-```bash
-git add prd analytics-spec weekly-report
-git commit -m "Update <skill>: <what changed>"
-git push
-```
-
 ---
 
 # product-skills (RU)
@@ -81,13 +71,3 @@ Remove-Item -Recurse -Force $env:TEMP\product-skills
 Перезапусти сессию Claude Code и вызывай `/prd`, `/analytics-spec` или `/weekly-report`. Для `weekly-report` дополнительно нужны Node.js 18+ и `npm i pptxgenjs jszip`, подробности в `weekly-report/INSTALL.md`.
 
 Чтобы получить свежую версию, запусти те же команды ещё раз.
-
-## Обновление
-
-Обновления вручную. Правишь скилл локально, затем:
-
-```bash
-git add prd analytics-spec weekly-report
-git commit -m "Update <skill>: <что изменилось>"
-git push
-```
