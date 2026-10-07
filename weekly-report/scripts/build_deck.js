@@ -137,20 +137,25 @@ if (D.meta) {
 // ---------- 1.1 Состояние продукта: KPI ----------
 // Слайд парсера (`parser_kpis`) идёт сразу после «Состояния продукта» и рисуется тем же макетом плиток
 for (const b of [D.kpis, D.parser_kpis].filter(Boolean)) {
+  // блок со строками вместо плиток — таблица «факт / прогноз / план» на месте слайда показателей (решение 06.10.2026)
+  if (b.rows || b.tables) { planFactSlide(b); continue; }
   const s = base(b);
   // `b.chart` — диаграмма изменений под плитками: { title, labels, values } в процентах.
   // Рост и падение рисуются двумя сериями, чтобы столбцы красились зелёным и красным.
-  const gap = 0.25, tw = (CW - gap * 3) / 4, th = b.chart ? 1.3 : 2.1;
+  // рядов столько, сколько нужно под плитки; при трёх и больше рядах плитка компактная
+  const gap = 0.25, tw = (CW - gap * 3) / 4, rows = Math.ceil(b.items.length / 4);
+  const th = rows > 2 ? (4.47 - gap * (rows - 1)) / rows : (b.chart ? 1.3 : 2.1);
+  const tight = !!b.chart || rows > 2;
   b.items.forEach((k, i) => {
     const x = M + (i % 4) * (tw + gap), y = 1.98 + Math.floor(i / 4) * (th + gap);
     const [bg, ac] = TONE[k.tone] || TONE.neutral;
     rect(s, { x, y, w: tw, h: th, fill: { color: bg } });
     // с диаграммой плитка короче: подпись под дельтой не выводим, её место занимает график
-    const k1 = b.chart ? 0.12 : 0.16, vh = b.chart ? 0.52 : 0.66, vs = b.chart ? 26 : 30;
+    const k1 = tight ? 0.12 : 0.16, vh = tight ? 0.5 : 0.66, vs = tight ? 25 : 30;
     text(s, k.label, { x: x + 0.2, y: y + k1, w: tw - 0.4, h: 0.3, fontSize: 12, bold: true, color: C.gray, fit: 'shrink' });
     text(s, k.value, { x: x + 0.2, y: y + k1 + 0.32, w: tw - 0.4, h: vh, fontSize: vs, bold: true, valign: 'middle', fit: 'shrink' });
     text(s, k.delta, { x: x + 0.2, y: y + k1 + 0.32 + vh, w: tw - 0.4, h: 0.32, fontSize: 14, bold: true, color: ac, valign: 'middle' });
-    if (!b.chart) text(s, k.note, { x: x + 0.2, y: y + k1 + 0.66 + vh, w: tw - 0.4, h: 0.5, fontSize: 10, color: C.gray, fit: 'shrink' });
+    if (!tight) text(s, k.note, { x: x + 0.2, y: y + k1 + 0.66 + vh, w: tw - 0.4, h: 0.5, fontSize: 10, color: C.gray, fit: 'shrink' });
     tip(s, x, y, tw, th, k.tip);
   });
   if (b.chart) {
@@ -169,6 +174,111 @@ for (const b of [D.kpis, D.parser_kpis].filter(Boolean)) {
     text(s, b.note, { x: M, y: 6.52, w: CW, h: 0.34, fontSize: 11, color: C.gray, valign: 'middle', fit: 'shrink' });
   }
 }
+
+// ---------- 1.0 Факт и план: таблица + горизонтальные столбцы выполнения ----------
+// b.rows = [{ label, fact, plan, pct, tone, tip }] — pct в процентах выполнения плана.
+// Слева таблица с числами, справа столбцы: видно и величину, и насколько дотянули до плана.
+// ---------- 1.0б План и факт по месяцам: два графика на слайде ----------
+// D.monthly = [{ section, title, charts: [{ title, labels, plan, fact, plan_name }], source, notes }]
+// plan текущего месяца — план на дату (план месяца × прошедшие дни / дней в месяце), будущих — план месяца.
+// plan_name — подпись серии в легенде, например «План (сентябрь — на 28.09)».
+for (const b of [].concat(D.monthly || [])) {
+  const s = base(b);
+  const n = b.charts.length, gap = 0.3, top = 1.7, hAll = 6.8 - top;
+  const h = (hAll - gap * (n - 1)) / n;
+  b.charts.forEach((ch, i) => {
+    const y = top + i * (h + gap);
+    // Семизначные подписи шире столбца: у соседних столбцов плана и факта они налезают друг на друга
+    // и факт не читается. От миллиона подписи и ось — в млн с двумя знаками, «млн» уходит в заголовок.
+    const max = Math.max(...[...ch.plan, ...ch.fact].filter(v => v != null));
+    const mln = max >= 1e6;
+    s.addChart(pres.charts.BAR, [
+      { name: ch.plan_name || 'План', labels: ch.labels, values: ch.plan },
+      { name: ch.fact_name || 'Факт', labels: ch.labels, values: ch.fact },
+    ], {
+      x: M, y, w: CW, h, barDir: 'col', barGrouping: 'clustered', barGapWidthPct: 40, barGapDepthPct: 20,
+      chartColors: [C.blue2, C.blue], showLegend: true, legendPos: 'b', legendFontSize: 9,
+      showValue: true, dataLabelPosition: 'outEnd', dataLabelFontSize: mln ? 8 : 7, dataLabelColor: C.gray,
+      dataLabelFormatCode: mln ? '#,##0.00,,' : '#,##0',
+      legendFontFace: F, legendColor: C.gray,
+      ...axis, catAxisLabelFontSize: 9, ...(mln ? { valAxisLabelFormatCode: '#,##0,,' } : {}),
+      ...chartTitle(mln && !/млн/.test(ch.title) ? (/, /.test(ch.title) ? ch.title.replace(', ', ', млн ') : ch.title + ', млн') : ch.title),
+    });
+    tip(s, M, y, CW, h, ch.tip);
+  });
+}
+
+// b.tables = [{ rows, headers? }] — несколько таблиц друг под другом на одном слайде
+// (месячный отчёт: показатели из Redash сверху, из базы мимо Redash снизу). Без tables — одна таблица из b.rows.
+function planFactSlide(b) {
+  const s = base(b);
+  const tables = b.tables || [b];
+  const nRows = tables.reduce((a, t) => a + t.rows.length + 1, 0);
+  const TG = 0.05; // зазор между таблицами сверх полосы подписей оси
+  const rh = tables.length > 1 ? Math.min(0.4, (5.1 - (TG + 0.34) * (tables.length - 1)) / nRows) : Math.min(0.4, 4.6 / nRows);
+  let y0 = 1.75;
+  tables.forEach((t, ti) => {
+    planFactTable(s, { ...b, ...t, headers: t.headers || b.headers }, y0, rh, ti === 0);
+    y0 += rh * (t.rows.length + 1) + (tables.length > 1 ? 0.34 : 0) + TG;
+  });
+  // b.note — строка под таблицей (например, изменение неделя к неделе), если под таблицей осталось место
+  if (b.note) {
+    const ny = Math.max(y0 + 0.5, 5.75);
+    rect(s, { x: M, y: ny, w: CW, h: 6.8 - ny, fill: { color: C.pale } });
+    text(s, b.note, { x: M + 0.2, y: ny + 0.08, w: CW - 0.4, h: 6.8 - ny - 0.16, fontSize: 11.5, color: C.navy, valign: 'middle', fit: 'shrink' });
+    tip(s, M, ny, CW, 6.8 - ny, b.note_tip);
+  }
+}
+
+function planFactTable(s, b, y0, rh, showTitle) {
+  const hdr = x => ({ text: x, options: { bold: true, color: C.white, fill: { color: C.navy2 }, fontSize: 11 } });
+  // b.headers — свои заголовки колонок; для плана на дату — «План к ДД.ММ»
+  // у строк есть `forecast` — пять колонок: факт, прогноз, план и прогноз к плану (решение 06.10.2026)
+  const fc = b.rows.some(r => r.forecast != null);
+  const nf = fc && b.hide_fact; // без колонки факта: только план и прогноз (решение 06.10.2026)
+  const H = b.headers || (nf ? ['Показатель', 'План', 'Прогноз', 'Прогнозное выполнение'] : fc ? ['Показатель', 'План', 'Прогноз', 'Факт', 'Прогнозное выполнение'] : ['Показатель', 'Факт', 'План', 'Выполнение']);
+  const rows = [H.map(hdr)];
+  b.rows.forEach(r => {
+    const [, ac] = TONE[r.tone] || TONE.neutral;
+    rows.push([
+      { text: nb(r.label), options: { bold: true, align: 'left' } },
+      // с прогнозом порядок колонок — план, прогноз, факт (решение 06.10.2026)
+      ...(fc ? [{ text: nb(r.plan), options: { align: 'right', color: C.gray } }, { text: nb(r.forecast ?? '—'), options: { bold: true, align: 'right', color: C.blue } }, ...(nf ? [] : [{ text: nb(r.fact), options: { bold: true, align: 'right' } }])]
+        : [{ text: nb(r.fact), options: { bold: true, align: 'right' } }, { text: nb(r.plan), options: { align: 'right', color: C.gray } }]),
+      { text: r.pct_text || (r.pct == null ? '—' : r.pct.toFixed(0) + '%'), options: { bold: true, align: 'right', color: ac } },
+    ]);
+  });
+  const tw = 6.8;
+  s.addTable(rows, { x: M, y: y0, w: tw, colW: nf ? [2.9, 1.25, 1.25, 1.4] : fc ? [2.3, 1.05, 1.1, 1.05, 1.3] : [3.0, 1.3, 1.3, 1.2], rowH: rh, fontFace: F, fontSize: 10.5, color: C.navy, valign: 'middle', border: { type: 'solid', pt: 0.75, color: C.line } });
+  b.rows.forEach((r, i) => tip(s, M, y0 + rh * (i + 1), tw, rh, r.tip));
+  // Диаграмма занимает ровно строки данных, без шапки: полоска стоит напротив своей строки таблицы.
+  // Заголовок рисуем текстом на высоте шапки, оси скрыты — иначе они съедают место и сбивают выравнивание.
+  const AXH = 0.34; // высота полосы с подписями оси процентов
+  const cx = M + tw + 0.3, cw = CW - tw - 0.3, cy = y0 + rh, ch = rh * b.rows.length;
+  if (showTitle) text(s, b.chart_title || (fc ? 'Прогнозное выполнение плана, %' : 'Выполнение плана, %'), { x: cx, y: y0, w: cw, h: rh, fontSize: 11, bold: true, color: C.navy, align: 'center', valign: 'middle' });
+  // горизонтальные столбцы рисуются снизу вверх — переворачиваем, чтобы порядок совпал с таблицей
+  const rev = [...b.rows].reverse();
+  // строка без плана или без факта: столбца нет, в таблице прочерк
+  const labels = rev.map(r => r.label), vals = rev.map(r => (r.pct == null ? null : Math.round(r.pct)));
+  s.addChart(pres.charts.BAR, [{ name: b.chart_title || (fc ? 'Прогнозное выполнение плана, %' : 'Выполнение плана, %'), labels, values: vals }], {
+    x: cx, y: cy, w: cw, h: ch + AXH, barDir: 'bar', barGapWidthPct: 35,
+    chartColors: rev.map(r => (TONE[r.tone] || TONE.neutral)[1]), varyColors: true,
+    // подписи на столбцах не выводим: проценты уже есть в колонке «Выполнение»,
+    // а формат-код с процентом pptxgenjs умножает значение на 100
+    showLegend: false, showTitle: false,
+    // точное значение в конце полоски; формат-код с процентом pptxgenjs умножает на 100, поэтому голое число
+    showValue: true, dataLabelPosition: 'outEnd', dataLabelFontSize: 8.5, dataLabelColor: C.gray, dataLabelFormatCode: '0',
+    // рамка диаграммы ниже таблицы на AXH: столько занимает полоса подписей оси,
+    // поэтому область построения совпадает по высоте со строками таблицы
+    catAxisHidden: true,
+    valAxisMinVal: b.axis_min ?? 0, valAxisMaxVal: b.axis_max || 130, valAxisMajorUnit: b.axis_step || 25,
+    valAxisLabelFontFace: F, valAxisLabelFontSize: 9, valAxisLabelColor: C.gray,
+    valGridLine: { color: C.line, size: 0.5 }, catGridLine: { style: 'none' },
+  });
+  tip(s, cx, cy, cw, ch, b.chart_tip);
+}
+// Можно передать один блок или массив — по слайду на каждый.
+for (const b of [].concat(D.plan_fact || [])) planFactSlide(b);
 
 // ---------- 1.2 Выручка: где растём, где проседаем ----------
 if (D.revenue) {
@@ -333,6 +443,8 @@ function isCeoPriority(it) {
 // Блок `sprints` — массив слайдов: сводка-плашки сверху и колонки ниже.
 // Колонка `compact: true` — список строками (много задач), иначе карточки с тегом и примечанием.
 for (const b of [].concat(D.sprints || [])) {
+  // слайд со строками вместо колонок рисуется макетом «таблица + столбцы»
+  if (b.rows || b.tables) { planFactSlide(b); continue; }
   const s = base(b);
   const k = b.summary.length, gw = 0.18, chipW = (CW - gw * (k - 1)) / k;
   b.summary.forEach((c, i) => {

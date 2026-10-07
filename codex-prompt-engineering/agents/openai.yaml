@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Prompt Engineering"
+  short_description: "Creates safe, verifiable Codex task briefs"
+  default_prompt: "Use $codex-prompt-engineering to turn my request into a ready-to-run Codex task brief."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Макет в Figma по требованиям"
+  short_description: "Редактируемые UI-макеты из PRD и ТЗ в Figma"
+  default_prompt: "Используй $requirements-to-design: создай редактируемый макет в Figma по приложенным требованиям."

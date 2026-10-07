@@ -1,0 +1,4 @@
+interface:
+  display_name: "Advanced JTBD интервью B2B"
+  short_description: "Дизайн Advanced JTBD-интервью для B2B"
+  default_prompt: "Use $design-advanced-jtbd-b2b-interviews to design an Advanced JTBD interview for this B2B research task."

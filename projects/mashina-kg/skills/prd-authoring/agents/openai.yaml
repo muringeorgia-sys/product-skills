@@ -1,0 +1,4 @@
+interface:
+  display_name: "Составление PRD"
+  short_description: "Создаёт проверяемые PRD для продуктовых команд"
+  default_prompt: "Используй $prd-authoring, чтобы составить PRD по моему продуктовому брифу."

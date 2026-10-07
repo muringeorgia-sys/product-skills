@@ -1,0 +1,4 @@
+interface:
+  display_name: "Case Helper"
+  short_description: "Двухэтапный помощник для продуктовых кейсов"
+  default_prompt: "Используй $case-helper, чтобы разобрать продуктовый кейс для собеседования."
