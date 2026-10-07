@@ -1,7 +1,0 @@
-interface:
-  display_name: "Product Interview Copilot"
-  short_description: "Product interview preparation assistant"
-  default_prompt: "Use $product-interview-copilot to help me answer a product interview question."
-policy:
-  allow_implicit_invocation: true
-

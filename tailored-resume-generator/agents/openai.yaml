@@ -1,4 +1,0 @@
-interface:
-  display_name: "Tailored Resume Generator"
-  short_description: "Tailor resumes to specific job descriptions"
-  default_prompt: "Use $tailored-resume-generator to tailor my resume for a specific job description."
