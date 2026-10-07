@@ -51,14 +51,6 @@
     },
     {
       "kind": "skill",
-      "name": "claude-code-prompt-engineering",
-      "source": "~/.claude/skills/claude-code-prompt-engineering",
-      "destination": "claude-code-prompt-engineering",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "feature-launch-planning",
       "source": "~/.claude/skills/feature-launch-planning",
       "destination": "feature-launch-planning",
@@ -115,74 +107,10 @@
     },
     {
       "kind": "skill",
-      "name": "canvas-design",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/canvas-design",
-      "destination": "canvas-design",
-      "files": 83,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "cover-letter-oleg",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/cover-letter-oleg",
-      "destination": "cover-letter-oleg",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "docs",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docs",
-      "destination": "docs",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "docx",
       "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docx",
       "destination": "docx",
       "files": 61,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "google-workspace",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/google-workspace",
-      "destination": "google-workspace",
-      "files": 9,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "import-memory",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/import-memory",
-      "destination": "import-memory",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "learn",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/learn",
-      "destination": "learn",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "mcp-builder",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/mcp-builder",
-      "destination": "mcp-builder",
-      "files": 10,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "morning",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/morning",
-      "destination": "morning",
-      "files": 3,
       "embeddedAgentFiles": 0
     },
     {
@@ -235,42 +163,10 @@
     },
     {
       "kind": "skill",
-      "name": "twg-agentic-search",
-      "source": "~/.claude/skills/twg-agentic-search",
-      "destination": "twg-agentic-search",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-bench-lite",
-      "source": "~/.claude/skills/twg-bench-lite",
-      "destination": "twg-bench-lite",
-      "files": 7,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
       "name": "twg-confluence",
       "source": "~/.claude/skills/twg-confluence",
       "destination": "twg-confluence",
       "files": 8,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-context-discovery",
-      "source": "~/.claude/skills/twg-context-discovery",
-      "destination": "twg-context-discovery",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-engineering-work",
-      "source": "~/.claude/skills/twg-engineering-work",
-      "destination": "twg-engineering-work",
-      "files": 5,
       "embeddedAgentFiles": 0
     },
     {
@@ -283,67 +179,11 @@
     },
     {
       "kind": "skill",
-      "name": "twg-jira-resolve-merged-work",
-      "source": "~/.claude/skills/twg-jira-resolve-merged-work",
-      "destination": "twg-jira-resolve-merged-work",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-operational-health",
-      "source": "~/.claude/skills/twg-operational-health",
-      "destination": "twg-operational-health",
-      "files": 7,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-responsibility-routing",
-      "source": "~/.claude/skills/twg-responsibility-routing",
-      "destination": "twg-responsibility-routing",
-      "files": 4,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "twg-space-creation",
-      "source": "~/.claude/skills/twg-space-creation",
-      "destination": "twg-space-creation",
-      "files": 8,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-status-rollups",
-      "source": "~/.claude/skills/twg-status-rollups",
-      "destination": "twg-status-rollups",
-      "files": 5,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "weekly-report",
       "source": "~/.claude/skills/weekly-report",
       "destination": "weekly-report",
       "files": 11,
       "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "case-helper",
-      "source": "~/.codex/skills/case-helper",
-      "destination": "case-helper",
-      "files": 12,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "codex-prompt-engineering",
-      "source": "~/.codex/skills/codex-prompt-engineering",
-      "destination": "codex-prompt-engineering",
-      "files": 5,
-      "embeddedAgentFiles": 1
     },
     {
       "kind": "skill",
@@ -358,14 +198,6 @@
       "name": "figma",
       "source": "~/.codex/skills/figma",
       "destination": "figma",
-      "files": 8,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "figma-create-design-system-rules",
-      "source": "~/.codex/skills/figma-create-design-system-rules",
-      "destination": "figma-create-design-system-rules",
       "files": 8,
       "embeddedAgentFiles": 1
     },
@@ -395,30 +227,6 @@
     },
     {
       "kind": "skill",
-      "name": "playwright",
-      "source": "~/.codex/skills/playwright",
-      "destination": "playwright",
-      "files": 9,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "product-interview-copilot",
-      "source": "~/.codex/skills/product-interview-copilot",
-      "destination": "product-interview-copilot",
-      "files": 12,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "tailored-resume-generator",
-      "source": "~/.codex/skills/tailored-resume-generator",
-      "destination": "tailored-resume-generator",
-      "files": 2,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
       "name": "twg",
       "source": "~/.agents/skills/twg",
       "destination": "variants/global/agents/skills/twg",
@@ -427,42 +235,10 @@
     },
     {
       "kind": "skill",
-      "name": "twg-agentic-search",
-      "source": "~/.agents/skills/twg-agentic-search",
-      "destination": "variants/global/agents/skills/twg-agentic-search",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-bench-lite",
-      "source": "~/.agents/skills/twg-bench-lite",
-      "destination": "variants/global/agents/skills/twg-bench-lite",
-      "files": 7,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
       "name": "twg-confluence",
       "source": "~/.agents/skills/twg-confluence",
       "destination": "variants/global/agents/skills/twg-confluence",
       "files": 8,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-context-discovery",
-      "source": "~/.agents/skills/twg-context-discovery",
-      "destination": "variants/global/agents/skills/twg-context-discovery",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-engineering-work",
-      "source": "~/.agents/skills/twg-engineering-work",
-      "destination": "variants/global/agents/skills/twg-engineering-work",
-      "files": 5,
       "embeddedAgentFiles": 0
     },
     {
@@ -475,66 +251,10 @@
     },
     {
       "kind": "skill",
-      "name": "twg-jira-resolve-merged-work",
-      "source": "~/.agents/skills/twg-jira-resolve-merged-work",
-      "destination": "variants/global/agents/skills/twg-jira-resolve-merged-work",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-operational-health",
-      "source": "~/.agents/skills/twg-operational-health",
-      "destination": "variants/global/agents/skills/twg-operational-health",
-      "files": 7,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-responsibility-routing",
-      "source": "~/.agents/skills/twg-responsibility-routing",
-      "destination": "variants/global/agents/skills/twg-responsibility-routing",
-      "files": 4,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "twg-space-creation",
-      "source": "~/.agents/skills/twg-space-creation",
-      "destination": "variants/global/agents/skills/twg-space-creation",
-      "files": 8,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "twg-status-rollups",
-      "source": "~/.agents/skills/twg-status-rollups",
-      "destination": "variants/global/agents/skills/twg-status-rollups",
-      "files": 5,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "archify",
       "source": "Mashina.kg/.claude/skills/archify",
       "destination": "projects/mashina-kg/skills/archify",
       "files": 313,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "archify-review",
-      "source": "Mashina.kg/.claude/skills/archify-review",
-      "destination": "projects/mashina-kg/skills/archify-review",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "cavecrew",
-      "source": "Mashina.kg/.claude/skills/cavecrew",
-      "destination": "projects/mashina-kg/skills/cavecrew",
-      "files": 2,
       "embeddedAgentFiles": 0
     },
     {
@@ -547,82 +267,10 @@
     },
     {
       "kind": "skill",
-      "name": "caveman-commit",
-      "source": "Mashina.kg/.claude/skills/caveman-commit",
-      "destination": "projects/mashina-kg/skills/caveman-commit",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-compress",
-      "source": "Mashina.kg/.claude/skills/caveman-compress",
-      "destination": "projects/mashina-kg/skills/caveman-compress",
-      "files": 10,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-discover",
-      "source": "Mashina.kg/.claude/skills/caveman-discover",
-      "destination": "projects/mashina-kg/skills/caveman-discover",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-evidence-review",
-      "source": "Mashina.kg/.claude/skills/caveman-evidence-review",
-      "destination": "projects/mashina-kg/skills/caveman-evidence-review",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-explore",
-      "source": "Mashina.kg/.claude/skills/caveman-explore",
-      "destination": "projects/mashina-kg/skills/caveman-explore",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-help",
-      "source": "Mashina.kg/.claude/skills/caveman-help",
-      "destination": "projects/mashina-kg/skills/caveman-help",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "caveman-learn",
       "source": "Mashina.kg/.claude/skills/caveman-learn",
       "destination": "projects/mashina-kg/skills/caveman-learn",
       "files": 6,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-manage",
-      "source": "Mashina.kg/.claude/skills/caveman-manage",
-      "destination": "projects/mashina-kg/skills/caveman-manage",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-optimize",
-      "source": "Mashina.kg/.claude/skills/caveman-optimize",
-      "destination": "projects/mashina-kg/skills/caveman-optimize",
-      "files": 1,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "caveman-review",
-      "source": "Mashina.kg/.claude/skills/caveman-review",
-      "destination": "projects/mashina-kg/skills/caveman-review",
-      "files": 2,
       "embeddedAgentFiles": 0
     },
     {
@@ -654,22 +302,6 @@
       "name": "investigate-first",
       "source": "Mashina.kg/.claude/skills/investigate-first",
       "destination": "projects/mashina-kg/skills/investigate-first",
-      "files": 2,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "lean-build",
-      "source": "Mashina.kg/.claude/skills/lean-build",
-      "destination": "projects/mashina-kg/skills/lean-build",
-      "files": 2,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "migration",
-      "source": "Mashina.kg/.claude/skills/migration",
-      "destination": "projects/mashina-kg/skills/migration",
       "files": 2,
       "embeddedAgentFiles": 1
     },
@@ -747,25 +379,9 @@
     },
     {
       "kind": "skill",
-      "name": "safe-refactor",
-      "source": "Mashina.kg/.claude/skills/safe-refactor",
-      "destination": "projects/mashina-kg/skills/safe-refactor",
-      "files": 2,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
       "name": "surgical-patch",
       "source": "Mashina.kg/.claude/skills/surgical-patch",
       "destination": "projects/mashina-kg/skills/surgical-patch",
-      "files": 2,
-      "embeddedAgentFiles": 1
-    },
-    {
-      "kind": "skill",
-      "name": "verify-and-stop",
-      "source": "Mashina.kg/.claude/skills/verify-and-stop",
-      "destination": "projects/mashina-kg/skills/verify-and-stop",
       "files": 2,
       "embeddedAgentFiles": 1
     },
