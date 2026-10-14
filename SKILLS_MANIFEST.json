@@ -78,7 +78,7 @@
       "name": "prd",
       "source": "~/.claude/skills/prd",
       "destination": "prd",
-      "files": 2,
+      "files": 19,
       "embeddedAgentFiles": 0
     },
     {
@@ -107,10 +107,106 @@
     },
     {
       "kind": "skill",
+      "name": "built-in-browser",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/built-in-browser",
+      "destination": "built-in-browser",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "canvas-design",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/canvas-design",
+      "destination": "canvas-design",
+      "files": 83,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "chrome-browser",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/chrome-browser",
+      "destination": "chrome-browser",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "computer-use",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/computer-use",
+      "destination": "computer-use",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "cover-letter-oleg",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/cover-letter-oleg",
+      "destination": "cover-letter-oleg",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "deep-research",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/deep-research",
+      "destination": "deep-research",
+      "files": 3,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "docs",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docs",
+      "destination": "docs",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "docx",
       "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docx",
       "destination": "docx",
       "files": 61,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "google-workspace",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/google-workspace",
+      "destination": "google-workspace",
+      "files": 9,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "import-memory",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/import-memory",
+      "destination": "import-memory",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "learn",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/learn",
+      "destination": "learn",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mcp-builder",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/mcp-builder",
+      "destination": "mcp-builder",
+      "files": 10,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "morning",
+      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/morning",
+      "destination": "morning",
+      "files": 3,
       "embeddedAgentFiles": 0
     },
     {
@@ -183,6 +279,14 @@
       "source": "~/.claude/skills/weekly-report",
       "destination": "weekly-report",
       "files": 11,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "agents",
+      "name": "claude",
+      "source": "~/.claude/agents",
+      "destination": "agents/global/claude",
+      "files": 8,
       "embeddedAgentFiles": 0
     },
     {
