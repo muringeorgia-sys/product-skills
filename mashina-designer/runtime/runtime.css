@@ -1,0 +1,126 @@
+/* Оболочка кликабельного прототипа Mashina.kg: панель, сцена, рамка устройства, слои, тосты,
+   режимы «Клики» и «Спека», боковая панель. Не часть дизайн-системы: внешний вид продукта
+   задают tokens.css и components.css. Цвета оболочки намеренно нейтральные. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#E9EAEE;min-height:100vh}
+[hidden]{display:none !important}
+template{display:none}
+
+/* ---------- панель прототипа ---------- */
+.proto-bar{position:sticky;top:0;z-index:2000;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px 12px;background:#101114;color:#E6E7EB;font:12px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.proto-bar button,.proto-bar select,.proto-bar__link{font:inherit;color:#D7D9DE;background:transparent;border:1px solid #3A3D45;border-radius:14px;padding:3px 10px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.proto-bar select{border-radius:8px;max-width:260px;background:#1C1E23}
+.proto-bar button:hover,.proto-bar__link:hover{border-color:#6B707A;color:#fff}
+.proto-bar button.on{background:#fff;color:#101114;border-color:#fff;font-weight:600}
+.proto-bar__tag{background:#0094FF;color:#fff;border-radius:6px;padding:2px 8px;font-weight:700}
+.proto-bar__title{font-weight:600;color:#fff;margin-right:4px}
+.proto-bar__group{display:inline-flex;align-items:center;gap:4px;padding-left:8px;margin-left:2px;border-left:1px solid #2A2D33}
+.proto-bar__group b{font-weight:500;color:#8E939C;margin-right:2px}
+.proto-bar__sp{flex:1}
+.proto-bar__link{color:#8FD0FF;border-color:#24496B}
+
+/* ---------- сцена и устройство ---------- */
+.proto-stage{padding:0 0 48px}
+.proto-device{position:relative;background:var(--surface-bg,#fff);color:var(--text-primary,#101114);font:400 14px/1.45 var(--font-primary,Inter,system-ui,sans-serif);-webkit-font-smoothing:antialiased}
+.proto-device button,.proto-device input,.proto-device select,.proto-device textarea{font-family:inherit}
+.proto-device--web{width:1440px;margin:0 auto;min-height:100vh;box-shadow:0 0 0 1px rgba(16,17,20,.06)}
+.proto-device--mobile{width:390px;height:844px;margin:20px auto;overflow:hidden;border-radius:44px;box-shadow:0 0 0 10px #101114,0 24px 60px rgba(16,17,20,.28);display:flex;flex-direction:column}
+.proto-device--mobile .proto-screens{position:relative;flex:1 1 auto;min-height:0}
+[data-screen]{display:none}
+[data-screen].is-current{display:block}
+.proto-device--mobile [data-screen].is-current{display:flex;flex-direction:column;position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+.proto-device--mobile [data-screen].is-current:has(> .scr-body){overflow:hidden}
+.scr-top,.scr-bottom{flex:none;position:relative;z-index:5}
+.scr-body{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden}
+.proto-device--mobile,.proto-device--mobile *{scrollbar-width:none}
+.proto-device--mobile *::-webkit-scrollbar{width:0;height:0}
+.proto-statusbar{flex:none;height:47px;display:flex;align-items:center;justify-content:space-between;padding:4px 30px 0 36px;font:600 15px/1 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text-primary,#101114);background:var(--surface-bg,#fff)}
+.proto-statusbar__icons{display:flex;gap:5px;align-items:center}
+.proto-statusbar__icons i{display:block;width:16px;height:10px;border-radius:2px;background:currentColor;opacity:.85}
+.proto-statusbar__icons i:last-child{width:24px;height:11px;border-radius:3px}
+
+/* ---------- слои: окно, шторка, боковая панель, выпадающее меню ---------- */
+.proto-layer{position:fixed;inset:0;z-index:1000;display:flex}
+.proto-device--mobile .proto-layer{position:absolute}
+.proto-backdrop{position:absolute;inset:0;background:rgba(16,17,20,.48);opacity:0;transition:opacity .18s}
+.proto-layer.is-open .proto-backdrop{opacity:1}
+.proto-layer__box{position:relative;z-index:1}
+.proto-layer--modal{align-items:center;justify-content:center;padding:24px}
+.proto-device--mobile .proto-layer--modal{padding:16px}
+.proto-layer--modal .proto-layer__box{max-height:calc(100% - 32px);max-width:100%;overflow:auto;opacity:0;transform:translateY(12px) scale(.98);transition:opacity .18s,transform .18s}
+.proto-layer--sheet{align-items:flex-end;justify-content:center}
+.proto-layer--sheet .proto-layer__box{width:100%;max-height:92%;overflow:auto;transform:translateY(100%);transition:transform .22s}
+.proto-device--web .proto-layer--sheet .proto-layer__box,body > .proto-layer--sheet .proto-layer__box{max-width:560px}
+.proto-layer--drawer{justify-content:flex-end}
+.proto-layer--drawer .proto-layer__box{height:100%;overflow:auto;transform:translateX(100%);transition:transform .22s}
+.proto-layer--popover .proto-backdrop{background:transparent}
+.proto-layer--popover .proto-layer__box{position:absolute;opacity:0;transform:translateY(-4px);transition:opacity .12s,transform .12s}
+.proto-layer.is-open .proto-layer__box{opacity:1;transform:none}
+
+/* ---------- тосты ---------- */
+.proto-toasts{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:3000;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;width:max-content;max-width:calc(100% - 32px)}
+.proto-device--mobile .proto-toasts{position:absolute;bottom:100px}
+.proto-toasts > *{opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s}
+.proto-toasts > .is-open{opacity:1;transform:none}
+.proto-note-toast{background:#101114;color:#fff;font:13px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;border-radius:10px;padding:10px 14px;box-shadow:0 8px 24px rgba(16,17,20,.25);max-width:340px;text-align:center;outline:1px dashed #0094FF;outline-offset:2px}
+.proto-note-toast::before{content:"Прототип: ";color:#8FD0FF;font-weight:600}
+
+/* ---------- подсветка кликабельных зон ---------- */
+:is(.proto-hint,.proto-hint-on) :is([data-go],[data-back],[data-open],[data-close],[data-toast],[data-set],[data-toggle],[data-toggle-class],[data-submit],[data-stub]){outline:2px solid rgba(0,148,255,.6) !important;outline-offset:2px}
+
+/* ---------- режим «Спека» ---------- */
+.proto-spec-layer{position:fixed;inset:0;pointer-events:none;z-index:1900}
+.proto-spec-box{position:absolute;border:1px dashed #A855F7}
+.proto-spec-box span{position:absolute;left:-1px;top:-15px;background:#A855F7;color:#fff;font:600 10px/14px system-ui,sans-serif;padding:0 4px;border-radius:3px;white-space:nowrap}
+.proto-spec-pin{position:absolute;width:20px;height:20px;border-radius:50%;background:#F97316;color:#fff;font:700 11px/20px system-ui,sans-serif;text-align:center;pointer-events:auto;cursor:help;box-shadow:0 0 0 2px #fff}
+
+/* ---------- боковая панель ---------- */
+.proto-panel{position:fixed;top:0;right:0;bottom:0;width:340px;z-index:2100;background:#fff;box-shadow:-8px 0 24px rgba(16,17,20,.14);font:13px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#101114;display:flex;flex-direction:column}
+.proto-panel__tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid #E6E7EB}
+.proto-panel__tabs button{font:inherit;border:1px solid #E1E3E8;background:#fff;border-radius:14px;padding:3px 10px;cursor:pointer}
+.proto-panel__tabs button.on{background:#101114;color:#fff;border-color:#101114}
+.proto-panel__tabs button[data-ptab="x"]{margin-left:auto;border:0;font-size:18px;line-height:1}
+.proto-panel__body{flex:1;overflow:auto;padding:10px 12px 24px}
+.proto-panel h4{margin:16px 0 6px;font-size:12px;color:#6B707A;font-weight:600}
+.proto-list{list-style:none;margin:0;padding:0}
+.proto-list li{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;padding:7px 8px;border-radius:8px}
+.proto-list li[data-pgo]{cursor:pointer}
+.proto-list li[data-pgo]:hover{background:#F2F4F7}
+.proto-list li.on{background:#EAF6FF}
+.proto-list li span{color:#8E939C;font-size:11px}
+.proto-list--log code{flex-basis:100%;font:11px/1.35 ui-monospace,Consolas,monospace;color:#3D4250;word-break:break-all}
+.proto-list--notes li{display:block}
+.proto-muted{color:#8E939C}
+.proto-screen-note{background:#FFF7E6;border-radius:8px;padding:8px 10px;margin:0 0 8px}
+
+/* ---------- mobile на настоящем телефоне ---------- */
+.proto-fab{display:none}
+.proto-real .proto-fab{display:block;position:fixed;right:10px;top:10px;z-index:2200;width:34px;height:34px;border-radius:50%;border:0;background:rgba(16,17,20,.72);color:#fff;font-size:16px}
+.proto-real .proto-bar{display:none}
+.proto-real.proto-bar-open .proto-bar{display:flex;position:fixed;top:0;left:0;right:0}
+.proto-real .proto-stage{padding:0}
+.proto-real .proto-device--mobile{width:100vw;height:100dvh;margin:0;border-radius:0;box-shadow:none}
+
+/* ---------- режим снимков ?shot=1 и ?full=1 ---------- */
+.proto-shot body{background:#fff}
+.proto-shot .proto-stage{padding:0}
+.proto-shot .proto-device--web{box-shadow:none}
+.proto-shot .proto-device--mobile{width:100vw;height:100vh;margin:0;border-radius:0;box-shadow:none}
+.proto-shot *,.proto-shot *::before,.proto-shot *::after{transition:none !important;animation:none !important;caret-color:transparent}
+.proto-full .proto-device--mobile{height:auto;min-height:844px;overflow:visible}
+.proto-full .proto-device--mobile .proto-screens{flex:none}
+.proto-full .proto-device--mobile [data-screen].is-current{position:static;overflow:visible !important;height:auto}
+.proto-full .proto-device--mobile .scr-body{overflow:visible}
+
+/* ---------- утилиты сборки ---------- */
+.logo{display:inline-block;height:32px;width:auto;flex:none;vertical-align:middle}
+.ic{width:24px;height:24px;flex:none;display:inline-block;vertical-align:middle}
+.ic--16{width:16px;height:16px}
+.ic--20{width:20px;height:20px}
+.ic--32{width:32px;height:32px}
+.ph{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--surface-container,#E6ECF5);color:var(--text-tertiary,#8195B2);font:500 12px/16px var(--font-primary,Inter,system-ui,sans-serif);overflow:hidden;position:relative}
+.ph .ic{width:32px;height:32px;opacity:.7}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (prefers-reduced-motion: reduce){.proto-layer *,.proto-toasts *{transition:none !important}}

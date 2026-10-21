@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Mashina.kg Design System: токены
+   Источник: Figma cBVCpuVZssfUSt2UG3bfNh (Design System), выгрузка 16.10.2026.
+   Библиотеки: «Design System», «Icons_Mashina». «DS:Mashina_Old» не использовать.
+   Рядом с каждой переменной в комментарии — точное имя переменной/стиля в Figma.
+
+   Темы. В Figma-файле есть светлый и тёмный режим переменных. Часть секций нарисована
+   в светлом (Buttons, Cells/Inputs, Alerts-legacy, Notification Toast/Banner), часть
+   только в тёмном (Various selectors, Navigation, «Главная», формы, Tooltips).
+   :root = светлая тема (основная). [data-theme="dark"] = тёмная по кадру «Главная» 4937:8322.
+   Если у переменной нет светлого значения в Figma — это отмечено словами «Light не найден».
+   ========================================================================== */
+
+:root {
+  /* ---------- Текст: Text/* ---------- */
+  --text-primary: #101114;            /* Text/Primary text */
+  --text-secondary: #505b6b;          /* Text/Secondary text */
+  --text-tertiary: #8195b2;           /* Text/Tertiary: плейсхолдер, неактивная вкладка, disabled-текст */
+  --text-hint: #9b9ca4;               /* Text/Hint: подсказка под полем */
+  --text-grey-light: #7c8a9e;         /* Text/GreyLight: неактивные подписи, рамка чекбокса */
+  --text-negative: #ef4444;           /* Text/Negative text */
+  --text-positive: #36b555;           /* Text/Positive text */
+  --text-info: #0094ff;               /* Text/Info text: акцентный текст, курсор, фон чекбокса */
+  --text-link: #2d79f5;               /* Text/Link */
+  --text-white: #ffffff;              /* Text/Brand White */
+  --text-dark: #13151e;               /* Text/Brand Dark */
+  --text-primary-inverted: #13151e;   /* Text/Primary inverted text */
+  --fg-primary: #101114;              /* foreground/primary */
+
+  /* ---------- Кнопки: Buttons/* ---------- */
+  --btn-primary: #0094ff;             /* Buttons/Primary button */
+  --btn-secondary: #bfd7ff;           /* Buttons/Secondary button */
+  --btn-semantic: #fb923c;            /* Buttons/Semantic button */
+  --btn-disabled: #e8eaed;            /* Buttons/Disabled button */
+  --btn-secondary-pressed: #ffffff;   /* Buttons/Secondary button pressed: белый текст «Text only White» */
+
+  /* ---------- Рамки: Borders/* ---------- */
+  --border-default: #94a8c5;          /* Borders/Default border: поля, ячейки, divider, чекбокс в списках */
+  --border-active: #0094ff;           /* Borders/Active border */
+  --border-negative: #ef4444;         /* Borders/Negative border */
+  --border-input: #5f7696;            /* Borders/Input border: поле web */
+  --border-disabled: #e7e7e7;         /* Borders/Disabled border */
+  --border-high: #e7e7e7;             /* border/high */
+
+  /* ---------- Поля: Input/* ---------- */
+  --input-bg: #ffffff;                /* Input/Input background */
+  --input-disabled: #ffffff;          /* Input/Input disabled (в Figma ещё opacity .5 на всём поле) */
+  --input-readonly: #f1f2f4;          /* Input/Input read only */
+  --input-special: #f4f4f5;           /* Input/Special input background: Calculator input, Special info */
+  --input-web-bg: #ffffff;            /* Input/Web: input background */
+  --surface-field-hover: #eeeff1;     /* surface/field/dark-hover: приставка валюты в Multi input */
+
+  /* ---------- Поверхности: Surface/* ---------- */
+  --surface-bg: #ffffff;              /* Surface/Primary background */
+  --surface-container: #f7f7f8;       /* Surface/Primary container background (подтверждено пикселями: Notification Toast) */
+  --surface-tertiary: #ffffff;        /* Surface/Tertiary container */
+  --surface-black: #000000;           /* Surface/Black container background */
+  --surface-greed: #e1f5e5;           /* Surface/GreedDark: плашка «от 61 000 ⃀ в месяц» */
+  --surface-dark-opacity: #25272980;  /* Surface/Dark-opacity: плашки поверх фото */
+  --surface-accent: #0183e2;          /* Surface/Accent container background: синяя полоса шапки web (в Figma #0183e2; get_variable_defs отдаёт #0094ff) */
+  --surface-secondary: #f5f7fa;       /* Surface/Secondary background: Light не найден в Figma. Значение — ручной замер 14.10 (фон #F5F7FA), НЕ подтверждено */
+  --surface-secondary-container: #f5f7fa; /* Surface/Secondary container background: Light не найден в Figma (как выше), НЕ подтверждено */
+
+  /* ---------- Семантика: Semantic/* ---------- */
+  --semantic-brand: #0094ff;          /* Semantic/Brand (в секции Alerts Figma отдаёт старый #0f67ff) */
+  --semantic-positive: #36b555;       /* Semantic/Positive */
+  --semantic-negative: #ef4444;       /* Semantic/Negative */
+  --semantic-grey-bg: #e6ecf5;        /* Semantic/GreyBg */
+  --semantic-positive-bg: #e1f5e5;    /* Semantic/Positive alert bg */
+  --semantic-negative-bg: #fdecec;    /* Semantic/Negative alert bg */
+  --semantic-orange-bg: #ffe6bd;      /* Semantic/Orange (фон предупреждения) */
+  --semantic-info-bg: #e2ecfe;        /* Semantic/Info alert bg */
+  --info-bg-secondary: #e2ecfe;       /* Info/background/secondary (Notification Banner) */
+
+  /* ---------- Спецкарточки и продвижение: Special card/* ---------- */
+  --card-vip: #ffa000;                /* Special card/VIP */
+  --card-red: #ef4444;                /* Special card/Red */
+  --card-purple: #fa5b72;             /* Special card/Purple */
+  --card-blue: #2d79f5;               /* Special card/Blue */
+  --card-violet: #7e22ce;             /* Special card/Violet */
+  --card-green: #1fa840;              /* Special card/Green */
+  --card-purple-light: #f363ae;       /* Special card/Purple-Light */
+  --card-purple-dark: #be185d;        /* Special card/Purple-Dark */
+  --card-color: #5518a5;              /* Special card/Card-color: плашка «Premium price» */
+
+  /* ---------- Элементы, нарисованные картинкой в Figma (цвет снят с пикселей) ---------- */
+  --toggle-on: #0f67ff;               /* Switchers / Toggle (SVG, не привязан к переменным; тёмный режим) */
+  --toggle-off: #4b525d;              /* Switchers / Toggle Off (SVG) */
+  --tooltip-bg: #181919;              /* Tooltip standart / Default: Surface/Primary container background в тёмном режиме */
+  --tooltip-bg-alt: #0f0f10;          /* Tooltip standart / Variant2: Surface/Secondary container background в тёмном режиме */
+  --tooltip-text: #f2f2f2;            /* Text/Primary text в тёмном режиме */
+  --tooltip-border: #272934;          /* Borders/Default border в тёмном режиме */
+
+  /* ---------- Состояния: в Figma это прозрачность, а не отдельный цвет ---------- */
+  --opacity-hover: 0.75;              /* Buttons: State=Hover = opacity 75% */
+  --opacity-pressed: 0.9;             /* Buttons: State=Pressed = opacity 90% */
+  --opacity-disabled-field: 0.5;      /* Inputs: State=Disabled = opacity 50% на всём поле */
+
+  /* ---------- Отступы: spacingBase/*, spasingElement/*, spasingBtn/*, числовые алиасы ---------- */
+  --sp-0: 0px;                        /* spacingBase/0, 0px */
+  --sp-2: 2px;                        /* spacingBase/50, 2px */
+  --sp-4: 4px;                        /* spacingBase/100, 4px */
+  --sp-6: 6px;                        /* 6px, spasingElement/small-x, medium-x, spasingBtn/xsmall-y */
+  --sp-8: 8px;                        /* spacingBase/200, 8px, spasingElement/large-x, large-y, spasingBtn/xsmall-x */
+  --sp-10: 10px;                      /* spacingBase/250, 10px */
+  --sp-12: 12px;                      /* spacingBase/300, 12px */
+  --sp-16: 16px;                      /* spacingBase/400, 16px */
+  --sp-20: 20px;                      /* spacingBase/500 */
+  --sp-24: 24px;                      /* 24px */
+  --sp-32: 32px;                      /* spacingBase/800 */
+  --sp-36: 36px;                      /* 36px */
+
+  /* ---------- Радиусы: radiusBase/*, radiusInner/*, radiusInput/*, числовые алиасы ---------- */
+  --r-0: 0px;                         /* radiusBase/0, radiusInput/none */
+  --r-4: 4px;                         /* radiusBase/50, 4px */
+  --r-6: 6px;                         /* 6px: рамка чекбокса */
+  --r-8: 8px;                         /* radiusBase/200, 8px: кнопка, поле web, баннер */
+  --r-9: 9px;                         /* radiusInner/300: элемент сегментированной вкладки */
+  --r-10: 10px;                       /* radiusBase/300, radiusInput/small, 10px: Select, Icon-button */
+  --r-12: 12px;                       /* radiusInput/medium, 12px: поле mobile, тост, пагинация */
+  --r-16: 16px;                       /* radiusBase/500, radiusInput/large, 16px: карточки, плитки, выпадающий список */
+  --r-18: 18px;                       /* элемент Segmented buttons (задан числом) */
+  --r-20: 20px;                       /* radiusBase/600, чип, Segmented buttons */
+  --r-full: 499px;                    /* radiusBase/full, radiusInner/full, radiusBtn/full; Rounded = 999px */
+
+  /* ---------- Размеры ---------- */
+  --h-btn: 44px;                      /* Buttons: высота */
+  --h-btn-m: 36px;                    /* Buttons Role=Navigation, Buttons New, Icon-button Small */
+  --h-btn-s: 28px;                    /* Small Button */
+  --h-input: 48px;                    /* sizeInput/medium */
+  --h-input-s: 40px;                  /* sizeInput/Small */
+  --h-input-l: 56px;                  /* sizeInput/large, sizeCombobox/large */
+  --w-control: 328px;                 /* sizeComponents/minimum: ширина контента mobile (360 − 2×16) */
+  --h-chip: 32px;                     /* Chips */
+  --border-w: 1px;                    /* border/primary */
+  --border-w-2: 2px;                  /* border/primary-pressed */
+  --size-icon: 24px;                  /* размер иконки по умолчанию (в Cells/полях 20, мелкая 16) */
+  --size-icon-s: 20px;
+  --size-icon-xs: 16px;               /* size/Icon/extraSmall, sizeIcon/small */
+
+  /* ---------- Раскладка экрана ---------- */
+  --layout-mobile-w: 393px;           /* кадр «Главная» 4937:8322 (в компонентах DS ширина 360) */
+  --layout-mobile-pad: 16px;          /* поля экрана mobile */
+  --layout-web-w: 1200px;             /* ширина контента web: шапка/подвал на холсте 1920 имеют поля 360 */
+
+  /* ---------- Тени: эффекты Figma ---------- */
+  --shadow-bottom-medium: 0 4px 8px #515c690d, 0 0 16px #515c691a;  /* Shadow/Bottom/Medium */
+  --shadow-toast: 0 2px 4px #515c690d, 0 0 8px #515c691a;           /* Toast/Shadow */
+
+  /* ---------- Шрифты: семейства из Figma, затем запасные ---------- */
+  --font-primary: "Inter_mashina", Inter, Roboto, system-ui, Arial, sans-serif;        /* Body 2.0/*: кнопки, подписи, цены, карточки (family/primary) */
+  --font-label: "Google Sans Mashina", "Google Sans", Inter, Roboto, system-ui, Arial, sans-serif; /* 3.1/*: поля, ячейки, вкладки, ссылки */
+}
+
+/* ==========================================================================
+   Тёмная тема: значения по кадру «Главная» 4937:8322 (в Figma он нарисован тёмным).
+   Это полный набор только для тех переменных, что видны на этом экране и в тёмных секциях.
+   ========================================================================== */
+[data-theme="dark"] {
+  --text-primary: #f2f2f2;            /* Text/Primary text */
+  --text-secondary: #808080;          /* Text/Secondary text (#b1b1b1 в секциях Cells/Buttons-2) */
+  --text-tertiary: #e9eaec;           /* Text/Tertiary */
+  --text-grey-light: #b3b3b3;         /* Text/GreyLight */
+  --text-hint: #9b9ca4;               /* Text/Hint */
+  --text-primary-inverted: #f2f2f2;   /* Text/Primary inverted text */
+  --btn-primary: #0f67ff;             /* Buttons/Primary button */
+  --btn-secondary: #2d2e2f;           /* Buttons/Secondary button */
+  --btn-disabled: #4b525d;            /* Buttons/Disabled button */
+  --border-default: #272934;          /* Borders/Default border */
+  --border-active: #0f67ff;           /* Borders/Active border */
+  --border-input: #272934;            /* Borders/Input border (в тёмной секции web-полей) */
+  --input-bg: #1c1e21;                /* Input/Input background */
+  --input-disabled: #1c1e21;          /* Input/Input disabled */
+  --input-readonly: #1c1e21;          /* Input/Input read only */
+  --surface-bg: #171819;              /* Surface/Primary background (#0f0f10 в секциях Selectors/Navigation) */
+  --surface-container: #1e232c;       /* Surface/Primary container background */
+  --surface-secondary: #212a3a;       /* Surface/Secondary background */
+  --surface-tertiary: #303949;        /* Surface/Tertiary container */
+  --surface-greed: #0d3617;           /* Surface/GreedDark */
+  --semantic-grey-bg: #2d2e2f;        /* Semantic/GreyBg */
+}
+
+/* ==========================================================================
+   Текстовые стили. Имя Figma — в комментарии: «стиль: семейство, начертание, размер / межстрочный».
+   В каждом текстовом слое Figma задано font-feature-settings "frac" 1. В CSS оно не применено:
+   с запасными шрифтами (Roboto, Inter) оно ломает строки из цифр без пробелов (ИНН, номера).
+   ========================================================================== */
+.t-h1,.t-h2,.t-h3,.t-title,.t-title-m,.t-subtitle,.t-price,.t-body-l,.t-body,.t-body-13,.t-body-12,.t-body-s,.t-body-xs,
+.t-caption,.t-detail,.t-small-medium,.t-micro,.t-micro-8,.t-btn,.t-semibold,.t-display,
+.t-label-l,.t-label,.t-label-14,.t-label-s,.t-label-inter,.t-label-inter-14 {
+  margin: 0;
+  letter-spacing: 0;
+}
+.t-num { font-feature-settings: "lnum" 1, "tnum" 1; }  /* цифры: lnum+tnum (в Figma: lnum+tnum+frac), как в ценах и пароле */
+
+/* Inter_mashina: заголовки */
+.t-display { font: 700 45px/1.25 var(--font-primary); }          /* Body 2.0/Display 2.0/font.display.medium: Inter_mashina, Bold, 45 / 1.25 */
+.t-h1 { font: 700 22px/1.1 var(--font-primary); }                /* Body 2.0/Title 3.0/font.title.large: Inter_mashina, Bold, 22 / 1.1 (в форме: Title 2.0/font.title.large 22 / 1.5) */
+.t-h2 { font: 600 20px/1.25 var(--font-primary); }               /* Body 2.0/Title 3.0/Title20: Inter_mashina, Semi Bold, 20 / 1.25 */
+.t-h3 { font: 600 16px/1.25 var(--font-primary); }               /* Body 2.0/Title 3.0/font.title.medium: Inter_mashina, Semi Bold, 16 / 1.25 */
+.t-title { font: 600 14px/1.25 var(--font-primary); }            /* Body 2.0/Title 3.0/Title 14: Inter_mashina, Semi Bold, 14 / 1.25 */
+.t-title-m { font: 500 16px/1.25 var(--font-primary); }          /* Body 2.0/Title 3.0/Titile16 - medium: Inter_mashina, Medium, 16 / 1.25 */
+.t-subtitle { font: 600 14px/1.5 var(--font-primary); }          /* Body 2.0/Title 2.0/font.title.small: Inter_mashina, Semi Bold, 14 / 1.5: заголовок тоста */
+.t-price { font: 500 15px/1.25 var(--font-primary); }            /* Body 2.0/Label 3.0/font.label.large.semibold: Inter_mashina, Medium, 15 / 1.25: цена в карточке */
+
+/* Inter_mashina: текст */
+.t-body-l { font: 400 15px/1.5 var(--font-primary); }            /* Body 2.0/font.body.large: Inter_mashina, Regular, 15 / 1.5 */
+.t-body { font: 400 14px/1.45 var(--font-primary); }             /* Body 2.0/Body 3.0/body14: Inter_mashina, Regular, 14 / 1.45 */
+.t-body-13 { font: 400 13px/1.45 var(--font-primary); }          /* Body 2.0/Body 3.0/body: Inter_mashina, Regular, 13 / 1.45: параметры в карточке */
+.t-body-12 { font: 400 12px/1.5 var(--font-primary); }           /* Body 2.0/font.body.medium: Inter_mashina, Regular, 12 / 1.5 */
+.t-body-s { font: 400 12px/1.45 var(--font-primary); }           /* Body 2.0/Body 3.0/text.body: Inter_mashina, Regular, 12 / 1.45 */
+.t-body-xs { font: 400 10px/1.25 var(--font-primary); }          /* Body 2.0/font.body.small: Inter_mashina, Regular, 10 / 1.25 */
+.t-caption { font: 400 12px/16px var(--font-primary); }          /* Body 2.0/Label  2.0/font.label.small: Inter_mashina, Regular, 12 / 16: hint, подпись поля */
+.t-detail { font: 500 13px/1.25 var(--font-primary); }           /* Body 2.0/Label 3.0/font.label.details: Inter_mashina, Medium, 13 / 1.25 */
+.t-small-medium { font: 500 12px/1.25 var(--font-primary); }     /* Body 2.0/Label 3.0/font.lable.small: Inter_mashina, Medium, 12 / 1.25: подпись нижней панели */
+.t-micro { font: 500 10px/1.25 var(--font-primary); }            /* Body 2.0/Label 3.0/lable.small: Inter_mashina, Medium, 10 / 1.25: бейдж-счётчик */
+.t-micro-8 { font: 500 8px/1.25 var(--font-primary); }           /* Body 2.0/font.label.micro: Inter_mashina, Medium, 8 / 1.25 */
+.t-btn { font: 500 14px/1.25 var(--font-primary); }              /* Body 2.0/3.1 font.buttons.text: Inter_mashina, Medium, 14 / 1.25 (кнопки). Не 600 */
+.t-semibold { font: 600 14px/1.25 var(--font-primary); }         /* Body 2.0/Label 3.0/Font.label.text.new: Inter_mashina, Semi Bold, 14 / 1.25 */
+.t-label-inter { font: 400 14px/20px var(--font-primary); }      /* Label/font.label.medium: Inter_mashina, Regular, 14 / 20 */
+.t-label-inter-14 { font: 400 14px/1.4 var(--font-primary); }    /* Body 2.0/Label 3.0/Label14: Inter_mashina, Regular, 14 / 1.4 */
+
+/* Google Sans Mashina: поля, ячейки, вкладки, ссылки */
+.t-label-l { font: 400 16px/24px var(--font-label); }            /* 3.1/3.1 Label/font.label.large: Google Sans Mashina, Regular, 16 / 24 */
+.t-label { font: 400 14px/20px var(--font-label); }              /* 3.1/3.1 Label/font.label.medium: Google Sans Mashina, Regular, 14 / 20 */
+.t-label-14 { font: 400 14px/1.4 var(--font-label); }            /* 3.1/3.1 Label/Label14: Google Sans Mashina, Regular, 14 / 1.4 */
+.t-label-s { font: 400 12px/1.5 var(--font-label); }             /* 3.1/3.1 Body/font.body.medium: Google Sans Mashina, Regular, 12 / 1.5 */
+
+/* Роли-цвета текста */
+.c-primary { color: var(--text-primary); }
+.c-secondary { color: var(--text-secondary); }
+.c-tertiary { color: var(--text-tertiary); }
+.c-hint { color: var(--text-hint); }
+.c-info { color: var(--text-info); }
+.c-negative { color: var(--text-negative); }
+.c-positive { color: var(--text-positive); }

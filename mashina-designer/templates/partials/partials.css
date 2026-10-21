@@ -1,0 +1,66 @@
+/* Шапка, подвал и панели для прототипов Mashina.kg.
+   Структура — как на mashina.kg (замеры 16.10.2026, references/site-ui.md), оформление — только токены DS.
+   Встраивается сборкой во все прототипы. Классы site-* и mweb-* — шаблоны, не компоненты DS. */
+
+/* ---------- web: шапка ---------- */
+.site-header { background: var(--surface-bg); border-bottom: var(--border-w) solid var(--border-high); }
+.site-header__row, .site-header__nav { box-sizing: border-box; display: flex; align-items: center; width: var(--layout-web-w); margin: 0 auto; }
+.site-header__row { height: 64px; gap: var(--sp-16); }
+.site-header__logo { display: inline-flex; align-items: center; cursor: pointer; }
+.site-header__logo .logo { height: 32px; }
+.site-header__link { display: inline-flex; align-items: center; gap: var(--sp-4); height: 40px; padding: 0 var(--sp-8); border: 0; border-radius: var(--r-8); background: transparent; color: var(--text-primary); font: 500 14px/20px var(--font-primary); cursor: pointer; }
+.site-header__link:hover { background: var(--surface-container); }
+.site-header__sp { flex: 1 1 auto; }
+.site-header__nav { height: 56px; gap: 32px; }
+.site-header__cat { display: inline-flex; align-items: center; gap: var(--sp-8); height: 100%; border-bottom: 2px solid transparent; color: var(--text-secondary); font: 500 14px/18px var(--font-primary); text-decoration: none; cursor: pointer; }
+.site-header__cat:hover { color: var(--text-primary); }
+.site-header__cat.is-selected { color: var(--text-primary); border-bottom-color: var(--border-active); }
+.site-header[data-nav="0"] .site-header__nav { display: none; }
+.site-crumbs { box-sizing: border-box; display: flex; gap: var(--sp-6); width: var(--layout-web-w); margin: var(--sp-16) auto 0; color: var(--text-hint); font: 500 13px/18px var(--font-primary); }
+.site-crumbs a { color: inherit; text-decoration: none; cursor: pointer; }
+.site-crumbs a:hover { color: var(--text-primary); }
+.site-main { box-sizing: border-box; width: var(--layout-web-w); margin: 0 auto; padding: var(--sp-24) 0 64px; }
+
+/* ---------- web: подвал (структура сайта, классы DS .web-footer) ---------- */
+.site-footer { margin-top: 64px; border-top: var(--border-w) solid var(--border-high); background: var(--surface-bg); }
+.site-footer .web-footer__main { gap: var(--sp-32); padding-bottom: var(--sp-32); }
+.site-footer__about { width: 480px; display: flex; flex-direction: column; gap: var(--sp-16); }
+.site-footer__about .logo { height: 32px; align-self: flex-start; }
+.site-footer__links a { color: var(--text-primary); text-decoration: none; cursor: pointer; }
+.site-footer__links a:hover { color: var(--text-info); }
+.site-footer__apps { width: 284px; display: flex; flex-direction: column; gap: var(--sp-12); }
+.site-footer__stores { display: flex; gap: var(--sp-12); }
+.site-footer__qr { display: flex; gap: var(--sp-12); align-items: center; color: var(--text-secondary); font: 400 13px/16px var(--font-primary); }
+.site-footer__qr .ph { width: 96px; height: 96px; flex: none; border-radius: var(--r-8); }
+
+/* ---------- mobile web: шапка, панель «назад», подвал ---------- */
+.mweb-header { box-sizing: border-box; display: flex; align-items: center; gap: var(--sp-8); height: 56px; padding: 0 var(--sp-8) 0 var(--sp-16); background: var(--surface-bg); border-bottom: var(--border-w) solid var(--border-high); }
+.mweb-header .logo { height: 24px; }
+.mweb-header__sp { flex: 1 1 auto; }
+.mweb-header__login { height: 36px; padding: 0 var(--sp-12); border: 0; border-radius: var(--r-8); background: var(--btn-secondary); color: var(--text-primary); font: 500 14px/1.25 var(--font-primary); cursor: pointer; }
+.mweb-topbar { border-bottom: var(--border-w) solid var(--border-high); }
+.mweb-topbar .topbar__title { font: 600 18px/1.25 var(--font-primary); }
+.mweb-footer { padding: var(--sp-32) var(--sp-16) 0; background: var(--surface-bg); border-top: var(--border-w) solid var(--border-high); display: flex; flex-direction: column; gap: var(--sp-20); }
+.mweb-footer .logo { height: 28px; align-self: flex-start; }
+.mweb-footer__links { display: flex; flex-direction: column; gap: var(--sp-12); font: 400 15px/24px var(--font-primary); }
+.mweb-footer__links a { color: var(--text-primary); text-decoration: none; }
+.mweb-footer__stores { display: flex; gap: var(--sp-12); }
+.mweb-footer .web-footer__legal { margin: 0 calc(-1 * var(--sp-16)); padding: var(--sp-12) var(--sp-16); justify-content: flex-start; }
+
+/* ---------- приложение: нижняя панель ---------- */
+.app-tabbar { border-top: var(--border-w) solid var(--border-high); padding-bottom: var(--sp-20); }
+
+/* ---------- web: карточка объявления в сетке 4 × 288 ----------
+   НЕТ В DS: в DS есть только mobile CarCard. Собрана из его классов по замерам сайта:
+   фото 4:3 с радиусом 12, метки внизу слева, цена в сомах на плашке и в долларах, кредит, название, параметры, город. */
+.site-grid { display: grid; grid-template-columns: repeat(4, 288px); gap: var(--sp-16); }
+.card.site-card { padding: 0; gap: var(--sp-8); }
+.site-card .card__photos { position: relative; border-radius: var(--r-12); }
+.site-card .card__photo { width: 100%; height: 216px; border-radius: var(--r-12); }
+.site-card .card__tags { left: 6px; right: 6px; top: auto; bottom: 6px; flex-wrap: wrap; }
+.site-card .card__title { display: block; }
+.site-card .card__title .card__dot { display: inline-block; vertical-align: middle; margin: 0 var(--sp-4); }
+/* mobile web: та же карточка в одну колонку */
+.mweb-list { display: flex; flex-direction: column; gap: var(--sp-24); padding: var(--sp-16) 0; }
+.mweb-list .card.site-card { padding: 0 var(--sp-16); }
+.mweb-list .site-card .card__photo { height: auto; aspect-ratio: 4 / 3; }

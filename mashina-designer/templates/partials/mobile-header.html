@@ -1,0 +1,9 @@
+<!-- partial: шапка мобильного сайта 390 для главных страниц разделов. «Войти» и профиль переключаются состоянием auth.
+     Для вложенных экранов и шагов — mobile-topbar. -->
+<div class="mweb-header" data-ds="Шапка mobile web (оформление DS)">
+  <a data-stub="Главная страница mashina.kg" aria-label="mashina.kg — на главную"><i data-logo></i></a>
+  <span class="mweb-header__sp"></span>
+  <button class="topbar__btn" type="button" aria-label="Поиск" data-stub="Поиск"><i data-icon="search"></i></button>
+  <button class="mweb-header__login" type="button" data-if="auth!:user" data-stub="Вход по номеру телефона или email">Войти</button>
+  <button class="topbar__btn" type="button" aria-label="Профиль" data-if="auth:user" data-stub="Профиль"><i data-icon="profile"></i></button>
+</div>

@@ -1,0 +1,21 @@
+<!-- partial: шапка сайта web 1440. Параметры: active = passenger | commercial | moto | services | parts (выбранная категория), nav = 0 — без строки категорий.
+     Структура — как на mashina.kg 16.10.2026, оформление — DS. «Войти» и профиль переключаются состоянием auth. -->
+<header class="site-header" data-nav="{{@nav}}" data-ds="Шапка сайта (структура mashina.kg, оформление DS)">
+  <div class="site-header__row">
+    <a class="site-header__logo" data-stub="Главная страница mashina.kg" aria-label="mashina.kg — на главную"><i data-logo></i></a>
+    <button class="site-header__link" type="button" data-stub="Меню «Для бизнеса»">Для бизнеса<i class="ic--16" data-icon="chevron-down"></i></button>
+    <span class="site-header__sp"></span>
+    <button class="site-header__link" type="button" data-stub="Выбор языка: Русский, Кыргызча, English">Рус<i class="ic--16" data-icon="chevron-down"></i></button>
+    <button class="btn-icon btn-icon--secondary" type="button" aria-label="Избранное" data-stub="Избранное"><i data-icon="heart"></i></button>
+    <button class="btn btn--secondary" type="button" data-if="auth!:user" data-stub="Вход по номеру телефона или email">Войти</button>
+    <button class="btn-icon btn-icon--secondary" type="button" aria-label="Профиль" data-if="auth:user" data-stub="Профиль"><i data-icon="profile"></i></button>
+    <button class="btn btn--primary" type="button" data-stub="Создание объявления">Создать объявление<i data-icon="plus"></i></button>
+  </div>
+  <nav class="site-header__nav" data-selected="{{@active}}" aria-label="Категории">
+    <a class="site-header__cat" data-value="passenger" data-stub="Каталог «Легковые»"><i class="ic--20" data-icon="car"></i>Легковые</a>
+    <a class="site-header__cat" data-value="commercial" data-stub="Каталог «Коммерческие»"><i class="ic--20" data-icon="truck"></i>Коммерческие</a>
+    <a class="site-header__cat" data-value="moto" data-stub="Каталог «Мото»"><i class="ic--20" data-icon="moto"></i>Мото</a>
+    <a class="site-header__cat" data-value="services" data-stub="Каталог «Услуги»">Услуги</a>
+    <a class="site-header__cat" data-value="parts" data-stub="Каталог «Запчасти»"><i class="ic--20" data-icon="parts"></i>Запчасти</a>
+  </nav>
+</header>

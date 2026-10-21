@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Фича · Mobile</title>
+<!-- Стартовый исходник mobile 390. Скопируй в <Фича>_материалы/prototype/mobile.src.html и замени всё содержимое по PRD.
+     Мобильный сайт: mobileKind "mweb", шапка mobile-header, подвал mobile-footer.
+     Приложение: mobileKind "app", вверху mobile-topbar или DS .topbar, внизу app-tabbar в .scr-bottom. -->
+<script type="application/json" id="proto-config">
+{
+  "feature": "Название фичи",
+  "platform": "mobile",
+  "mobileKind": "mweb",
+  "start": "main",
+  "other": "Фича.web.prototype.html",
+  "states": {
+    "auth": {"label": "Вход", "values": {"guest": "Гость", "user": "С входом"}, "default": "guest"}
+  },
+  "initial": {},
+  "data": {
+    "cars": [
+      {"title": "Toyota Camry", "year": 2019, "km": "98 000 км", "specs": "2.5 · автомат · Слева · седан", "city": "Бишкек", "som": 2055075, "usd": 23500, "monthly": 46000},
+      {"title": "Lexus RX 350", "year": 2017, "km": "121 000 км", "specs": "3.5 · автомат · Слева · кроссовер", "city": "Бишкек", "som": 2754675, "usd": 31500, "monthly": 61700, "status": "В наличии"},
+      {"title": "Honda Fit", "year": 2014, "km": "143 000 км", "specs": "1.3 · вариатор · Справа · хэтчбек", "city": "Ош", "som": 594660, "usd": 6800}
+    ]
+  }
+}
+</script>
+<style>
+/* Стили фичи: только var(--…) из tokens.css, без сырых цветов. Новое помечай data-ds="НЕТ В DS: …". */
+.f-pad { padding: var(--sp-16); }
+.f-sticky { padding: var(--sp-12) var(--sp-16) var(--sp-20); background: var(--surface-bg); border-top: var(--border-w) solid var(--border-high); }
+</style>
+</head>
+<body>
+
+<section data-screen="main" data-title="Главный экран">
+  <div class="scr-top"><!-- @include mobile-header --></div>
+  <div class="scr-body">
+    <div class="f-pad"><h1 class="t-h1">Заголовок экрана</h1></div>
+    <div class="mweb-list">
+      <template data-each="cars">
+        <article class="card site-card" data-ds="НЕТ В DS: карточка mobile web (по замерам сайта)" data-stub="Страница объявления">
+          <div class="card__photos"><div class="card__photo ph"><i data-icon="car"></i></div>
+            <div class="card__tags"><span class="tag tag--status-s" data-item-if="status">{{status}}</span></div></div>
+          <div class="card__body">
+            <div class="card__head">
+              <div class="card__prices">
+                <div class="card__price-row"><span class="tag tag--premium">{{som|som}}</span><span class="card__price-sep"></span><p class="card__price">{{usd|usd}}</p></div>
+                <div class="card__credit" data-item-if="monthly"><span class="tag tag--credit">от {{monthly|som}}</span>в месяц</div>
+              </div>
+              <button class="card__fav" type="button" aria-label="В избранное" data-toggle-class="is-selected"><i data-icon="heart"></i></button>
+            </div>
+            <div class="card__specs">
+              <p class="card__title">{{title}}<span class="card__dot"></span>{{year}}<span class="card__dot"></span>{{km}}</p>
+              <p class="card__meta">{{specs}}</p>
+              <p class="card__meta">{{city}}</p>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+    <!-- @include mobile-footer -->
+  </div>
+  <div class="scr-bottom f-sticky"><button class="btn btn--primary btn--block" type="button" data-open="example">Открыть шторку</button></div>
+</section>
+
+<div data-sheet="example" data-over="main">
+  <div class="sheet" data-ds="НЕТ В DS: шторка">
+    <h3 class="sheet__title">Заголовок шторки</h3>
+    <div class="sheet__list">
+      <button class="cell" type="button" data-close><span class="cell__body">Пункт 1</span><i class="cell__tail" data-icon="chevron-right"></i></button>
+      <hr class="divider">
+      <button class="cell" type="button" data-close><span class="cell__body">Пункт 2</span><i class="cell__tail" data-icon="chevron-right"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Логика фичи. Подписки — Proto.on('state', fn), см. prototype-format.md.
+</script>
+</body>
+</html>

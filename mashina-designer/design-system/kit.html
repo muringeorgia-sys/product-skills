@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Mashina.kg DS: живой каталог</title>
+<meta name="viewport" content="width=1440">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+/* Служебные стили каталога: только переменные tokens.css */
+html, body { margin: 0; }
+body { background: var(--surface-bg); color: var(--text-primary); font: 400 14px/1.45 var(--font-primary); }
+.kit { box-sizing: border-box; width: 1440px; margin: 0 auto; padding: 32px 40px 80px; }
+.kit h1 { margin: 0 0 4px; font: 700 28px/1.2 var(--font-primary); }
+.kit h2 { margin: 56px 0 4px; padding-top: 20px; border-top: 1px solid var(--border-high); font: 700 22px/1.25 var(--font-primary); }
+.kit h3 { margin: 28px 0 10px; font: 600 15px/1.25 var(--font-primary); color: var(--text-secondary); }
+.kit__sub { margin: 0 0 8px; color: var(--text-secondary); }
+.kit__sub code, .kit-cap code { font: 500 12px/1.3 var(--font-primary); color: var(--text-primary); }
+.kit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 32px; align-items: start; }
+.kit-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.kit-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kit-grid--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.kit-item { margin: 0; min-width: 0; }
+.kit-demo { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px; border: 1px dashed var(--border-high); border-radius: var(--r-8); background: var(--surface-bg); }
+.kit-demo--row { flex-direction: row; flex-wrap: wrap; align-items: center; }
+.kit-demo--dark { background: var(--surface-bg); color: var(--text-primary); }
+.kit-demo--tint { background: var(--surface-container); }
+.kit-cap { margin-top: 6px; font: 400 11px/1.4 var(--font-primary); color: var(--text-secondary); word-break: break-word; }
+.kit-node { color: var(--text-info); }
+.kit-w328 { width: 328px; max-width: 100%; }
+.kit-w360 { width: 360px; max-width: 100%; }
+.kit-h { opacity: var(--opacity-hover); }
+.kit-p { opacity: var(--opacity-pressed); }
+.kit-sw { display: flex; align-items: center; gap: 10px; margin: 0; }
+.kit-sw__c { flex: none; width: 40px; height: 40px; border: 1px solid var(--border-high); border-radius: var(--r-8); }
+.kit-sw__t { min-width: 0; font: 400 11px/1.35 var(--font-primary); color: var(--text-secondary); }
+.kit-sw__t b { display: block; font: 600 12px/1.3 var(--font-primary); color: var(--text-primary); }
+.kit-box { display: inline-flex; align-items: center; justify-content: center; min-width: 56px; height: 40px; border: 1px solid var(--border-active); background: var(--semantic-info-bg); font: 500 11px/1 var(--font-primary); }
+.kit-phone { box-sizing: border-box; width: 393px; background: var(--surface-bg); color: var(--text-primary); overflow: hidden; border: 1px solid var(--border-high); }
+.kit-bar { display: flex; flex-direction: column; justify-content: center; height: 52px; padding: 0 24px; font: 500 14px/20px var(--font-primary); }
+i[data-icon], i[data-logo] { background: currentColor; opacity: .25; border-radius: var(--r-4); }  /* иконки и логотип подставляет сборщик build.cjs из icons/ и logo/; в каталоге — заглушка */
+.kit-note { margin: 12px 0 0; padding: 10px 14px; border-radius: var(--r-8); background: var(--semantic-info-bg); font: 400 12px/1.5 var(--font-primary); }
+.kit-theme { float: right; }
+</style>
+</head>
+<body>
+<div class="kit">
+
+<h1>Mashina.kg Design System: живой каталог</h1>
+<p class="kit__sub">Источник: Figma <code>cBVCpuVZssfUSt2UG3bfNh</code>, выгрузка 16.10.2026. Подпись под каждым элементом: класс и узел Figma. Основная тема светлая; тёмная включается атрибутом <code>data-theme="dark"</code>.</p>
+<p class="kit-note">Иконки в каталоге показаны серыми заглушками <code>&lt;i data-icon="имя"&gt;</code>: файлы <code>icons/*.svg</code> из Figma не сохранены (загрузка по сети из Bash была запрещена правами), см. design-system.md, раздел «Иконки и логотип». В прототипе иконки подставляет сборщик.</p>
+
+<!-- ======================= ЦВЕТА ======================= -->
+<h2 id="colors">Цвета <span class="kit__sub">· tokens.css, :root</span></h2>
+<p class="kit__sub">Имя CSS-переменной и значение. Имя переменной Figma — в tokens.css рядом с каждой переменной.</p>
+<div class="kit-grid kit-grid--4" id="swatches"></div>
+
+<!-- ======================= ТИПОГРАФИКА ======================= -->
+<h2 id="type">Типографика <span class="kit__sub">· классы .t-*</span></h2>
+<p class="kit__sub">Два семейства: Inter_mashina (кнопки, подписи, цены, карточки) и Google Sans Mashina (поля, ячейки, вкладки, ссылки). Запасные: Inter, Roboto, system-ui, Arial.</p>
+<div class="kit-grid kit-grid--2">
+  <div class="kit-item"><div class="kit-demo">
+    <p class="t-display">Mashina 45</p><p class="t-h1">Заголовок экрана 22</p><p class="t-h2">Заголовок секции 20</p><p class="t-h3">Заголовок блока 16</p>
+    <p class="t-title">Title 14 semibold</p><p class="t-title-m">Title 16 medium</p><p class="t-subtitle">Заголовок тоста 14/1.5</p><p class="t-price">6 160 000 ⃀ · цена 15</p>
+    <p class="t-body-l">Основной текст 15/1.5</p><p class="t-body">Основной текст 14/1.45</p><p class="t-body-13">Параметры в карточке 13/1.45</p><p class="t-body-12">Текст 12/1.5</p><p class="t-body-s">Текст 12/1.45</p><p class="t-body-xs">Мелкий 10/1.25</p>
+  </div><div class="kit-cap"><code>.t-display .t-h1 .t-h2 .t-h3 .t-title .t-title-m .t-subtitle .t-price .t-body-l .t-body .t-body-13 .t-body-12 .t-body-s .t-body-xs</code> · Inter_mashina</div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <p class="t-caption">Подпись и hint 12/16</p><p class="t-detail">Деталь 13 medium</p><p class="t-small-medium">Подпись панели 12 medium</p><p class="t-micro">Микро 10 medium</p><p class="t-micro-8">Микро 8 medium</p>
+    <p class="t-btn">Текст кнопки 14 medium (500)</p><p class="t-semibold">Semibold 14</p><p class="t-label-inter">Label Inter 14/20</p><p class="t-label-inter-14">Label Inter 14/1.4</p>
+    <p class="t-label-l">Google Sans 16/24</p><p class="t-label">Google Sans 14/20</p><p class="t-label-14">Google Sans 14/1.4</p><p class="t-label-s">Google Sans 12/1.5</p>
+  </div><div class="kit-cap"><code>.t-caption .t-detail .t-small-medium .t-micro .t-micro-8 .t-btn .t-semibold .t-label-inter .t-label-inter-14 .t-label-l .t-label .t-label-14 .t-label-s</code></div></div>
+</div>
+
+<!-- ======================= ОТСТУПЫ, РАДИУСЫ, ТЕНИ ======================= -->
+<h2 id="space">Отступы, радиусы, тени</h2>
+<h3>Отступы <code>--sp-*</code> (spacingBase/*)</h3>
+<div class="kit-demo kit-demo--row">
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-2)"></span><div class="kit-cap">--sp-2</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-4)"></span><div class="kit-cap">--sp-4</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-6)"></span><div class="kit-cap">--sp-6</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-8)"></span><div class="kit-cap">--sp-8</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-10)"></span><div class="kit-cap">--sp-10</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-12)"></span><div class="kit-cap">--sp-12</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-16)"></span><div class="kit-cap">--sp-16</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-20)"></span><div class="kit-cap">--sp-20</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-24)"></span><div class="kit-cap">--sp-24</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-32)"></span><div class="kit-cap">--sp-32</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:var(--sp-36)"></span><div class="kit-cap">--sp-36</div></div>
+</div>
+<h3>Радиусы <code>--r-*</code></h3>
+<div class="kit-demo kit-demo--row">
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-4)">4</span><div class="kit-cap">--r-4</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-6)">6</span><div class="kit-cap">--r-6</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-8)">8</span><div class="kit-cap">--r-8</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-9)">9</span><div class="kit-cap">--r-9</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-10)">10</span><div class="kit-cap">--r-10</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-12)">12</span><div class="kit-cap">--r-12</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-16)">16</span><div class="kit-cap">--r-16</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-18)">18</span><div class="kit-cap">--r-18</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-20)">20</span><div class="kit-cap">--r-20</div></div>
+  <div class="kit-item"><span class="kit-box" style="border-radius:var(--r-full)">full</span><div class="kit-cap">--r-full</div></div>
+</div>
+<h3>Тени</h3>
+<div class="kit-demo kit-demo--row" style="gap:32px">
+  <div class="kit-item"><span class="kit-box" style="width:140px;height:64px;border:0;background:var(--surface-bg);box-shadow:var(--shadow-bottom-medium)">Shadow/Bottom/Medium</span><div class="kit-cap">--shadow-bottom-medium</div></div>
+  <div class="kit-item"><span class="kit-box" style="width:140px;height:64px;border:0;background:var(--surface-bg);box-shadow:var(--shadow-toast)">Toast/Shadow</span><div class="kit-cap">--shadow-toast</div></div>
+</div>
+
+<!-- ======================= КНОПКИ ======================= -->
+<h2 id="buttons">Кнопки <span class="kit__sub">· .btn · Figma 498:6837, Buttons 25:2601</span></h2>
+<p class="kit__sub">Высота 44, отступы 8/16, радиус 8, текст Inter_mashina Medium 14/1.25. Hover = прозрачность 75%, Pressed = 90%, цвет тот же. Disabled: фон <code>--btn-disabled</code>, текст <code>--text-tertiary</code>.</p>
+<h3>Роли и состояния (без иконки): Default · Hover · Pressed · Disabled</h3>
+<div class="kit-grid kit-grid--4">
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--primary btn--block">Кнопка</button><button class="btn btn--primary btn--block kit-h">Кнопка</button><button class="btn btn--primary btn--block kit-p">Кнопка</button><button class="btn btn--primary btn--block" disabled>Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--primary</code> · <span class="kit-node">332:3363 / 497:5202 / 332:3371 / 332:3383</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--secondary btn--block">Кнопка</button><button class="btn btn--secondary btn--block kit-h">Кнопка</button><button class="btn btn--secondary btn--block kit-p">Кнопка</button><button class="btn btn--secondary btn--block" disabled>Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--secondary</code> · <span class="kit-node">332:3365 / 497:5205 / 332:3374 / 332:3386</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--tertiary btn--block">Кнопка</button><button class="btn btn--tertiary btn--block kit-h" style="color:var(--text-info)">Кнопка</button><button class="btn btn--tertiary btn--block kit-p">Кнопка</button><button class="btn btn--tertiary btn--block" disabled>Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--tertiary</code> (рамка 1px, hover: текст Info) · <span class="kit-node">332:3367 / 497:5208 / 332:3377 / 332:3389</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--semantic btn--block">Кнопка</button><button class="btn btn--semantic btn--block kit-h">Кнопка</button><button class="btn btn--semantic btn--block kit-p">Кнопка</button><button class="btn btn--semantic btn--block" disabled>Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--semantic</code> · <span class="kit-node">632:6022 / 632:6025 / 632:6028 / 632:6031</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--text btn--block">Кнопка</button><button class="btn btn--text btn--block kit-h">Кнопка</button><button class="btn btn--text btn--block kit-p">Кнопка</button><button class="btn btn--text btn--block" disabled>Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--text</code> (Text only) · <span class="kit-node">332:3369 / 497:5211 / 332:3380 / 332:3392</span></div></div>
+  <div class="kit-item"><div class="kit-demo" style="background:var(--btn-primary)">
+    <button class="btn btn--text-white btn--block">Кнопка</button><button class="btn btn--text-white btn--block kit-h">Кнопка</button><button class="btn btn--text-white btn--block kit-p">Кнопка</button>
+  </div><div class="kit-cap"><code>.btn.btn--text-white</code> (Text only White, на цветном фоне) · <span class="kit-node">4707:7956 / 4707:7959 / 4707:7962</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--nav btn--block">Навигация</button><button class="btn btn--nav btn--positive btn--block">Создать объявление</button>
+  </div><div class="kit-cap"><code>.btn.btn--nav</code> (Role=Navigation, h36, оранжевая; <code>.btn--positive</code> — зелёная в шапке mashina) · <span class="kit-node">2895:6212</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <button class="btn btn--primary btn--block is-loading">Отправить</button>
+  </div><div class="kit-cap"><code>.btn.is-loading</code> — Нет в DS (состояния загрузки в Figma нет)</div></div>
+</div>
+<h3>С иконкой и размеры</h3>
+<div class="kit-grid kit-grid--4">
+  <div class="kit-item"><div class="kit-demo"><button class="btn btn--primary btn--block"><i class="ic" data-icon="plus"></i>Слева</button><button class="btn btn--primary btn--block">Справа<i class="ic" data-icon="chevron-right"></i></button></div><div class="kit-cap">иконка 24, зазор 8 · <span class="kit-node">4709:10238 / 25:2600</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><button class="btn btn--primary btn--s">Small Button</button><button class="btn btn--secondary btn--s">Small Button</button></div><div class="kit-cap"><code>.btn--s</code> h28, px10, r10 · <span class="kit-node">4186:20541</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><button class="btn btn--primary btn--m">Размер M</button></div><div class="kit-cap"><code>.btn--m</code> h36 (Navigation, Buttons New) · <span class="kit-node">4072:6975</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><button class="btn btn--primary btn--block btn--l">Размер L (по умолчанию)</button></div><div class="kit-cap"><code>.btn--l</code> h44</div></div>
+</div>
+<h3>Icon-button <code>.btn-icon</code> · Figma 1101:7979</h3>
+<div class="kit-demo kit-demo--row">
+  <div class="kit-item"><button class="btn-icon"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Primary 1101:7978</div></div>
+  <div class="kit-item"><button class="btn-icon btn-icon--secondary"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Secondary 1101:7995</div></div>
+  <div class="kit-item"><button class="btn-icon btn-icon--liner"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Liner 1101:8542</div></div>
+  <div class="kit-item"><button class="btn-icon btn-icon--outline"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Outline 1101:8546</div></div>
+  <div class="kit-item"><button class="btn-icon btn-icon--semantic"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Semantic 1101:8550</div></div>
+  <div class="kit-item"><button class="btn-icon" disabled><i class="ic" data-icon="heart"></i></button><div class="kit-cap">Disable 1101:8554</div></div>
+  <div class="kit-item"><button class="btn-icon btn-icon--s"><i class="ic" data-icon="heart"></i></button><div class="kit-cap">.btn-icon--s 36 · 4785:15307</div></div>
+</div>
+<h3>Ссылки · Figma 844:12379, 1236:3916</h3>
+<div class="kit-demo kit-demo--row" style="gap:32px">
+  <div class="kit-item"><a class="link">Ссылка</a><div class="kit-cap"><code>.link</code> 840:12142</div></div>
+  <div class="kit-item"><a class="link"><span>Ссылка с иконкой</span><i class="ic" data-icon="heart"></i></a><div class="kit-cap"><code>.link</code> 1945:4943</div></div>
+  <div class="kit-item"><a class="link link--info">Смотреть все<i class="ic ic--20" data-icon="chevron-right"></i></a><div class="kit-cap"><code>.link.link--info</code> 1236:3916</div></div>
+</div>
+
+<!-- ======================= ПОЛЯ ======================= -->
+<h2 id="inputs">Поля <span class="kit__sub">· .field .input · Figma 14:1512 (mobile), 5180:7649 (web)</span></h2>
+<p class="kit__sub">Высота 48, отступы 8/12, рамка 1px, радиус 12 (web: радиус 8, рамка <code>--border-input</code>). Подпись снаружи: Google Sans 14/20, hint Inter 12/16. Disabled в Figma = прозрачность 50% на всём поле.</p>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">Метка</label><input class="input" placeholder="Placeholder"><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.field > .input</code> · Default · <span class="kit-node">14:1513</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">Метка</label><input class="input is-active" value="Abc"><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.input.is-active</code> / <code>:focus</code> · Active · <span class="kit-node">471:11190</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">Метка</label><input class="input" value="Заполнено"><p class="field__hint">Hint text</p></div></div><div class="kit-cap">Filled · <span class="kit-node">16:1404</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328 is-error"><label class="field__label">Метка<span class="field__req">*</span></label><input class="input is-error" value="Заполнено"><p class="field__error">Текст ошибки</p></div></div><div class="kit-cap"><code>.field.is-error</code> + <code>.field__req</code> · Error · <span class="kit-node">14:1779, 473:11541</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328 is-disabled"><label class="field__label">Метка</label><input class="input" placeholder="Placeholder" disabled><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.field.is-disabled</code> · Disabled · <span class="kit-node">632:6387</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328 is-readonly"><label class="field__label">Метка</label><input class="input is-readonly" value="Только чтение" readonly><p class="field__hint">Hint text</p></div></div><div class="kit-cap">Read only · <span class="kit-node">16:2144</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">С иконками</label><div class="input"><i class="ic input__icon" data-icon="search"></i><input class="input__control" placeholder="Placeholder"><i class="ic input__icon" data-icon="heart"></i></div><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.input > .input__icon .input__control</code> · Lead + Tail 20 · <span class="kit-node">14:1554</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">Пароль<span class="field__req">*</span></label><div class="input"><input class="input__control" type="password" value="ABCDFGH"><i class="ic input__icon input__icon--24" data-icon="eye-off"></i></div><p class="field__hint">Hint text</p></div></div><div class="kit-cap">Password · <span class="kit-node">456:8846</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label"><span>Описание</span><span class="field__counter">0 / 500</span></label><textarea class="input textarea" rows="3" placeholder="Placeholder"></textarea><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.input.textarea</code> + <code>.field__counter</code> · Text Area · <span class="kit-node">1025:7269</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><div class="input input--web"><input class="input__control" placeholder="Placeholder"><i class="ic input__icon input__icon--24" data-icon="heart"></i></div><p class="field__hint">Hint text</p></div></div><div class="kit-cap"><code>.input.input--web</code> · Inputs web · <span class="kit-node">5180:7649</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><label class="field__label">Телефон</label><div class="input"><div class="input__cluster"><span class="input__flag" data-ds="НЕТ В DS: флаг"></span><span>996</span><i class="ic ic--16" data-icon="chevron-down"></i><span class="input__sep"></span></div><input class="input__control" placeholder="000 000 000"></div><p class="field__hint">Hint text</p></div></div><div class="kit-cap">Phone number with selector · <span class="kit-node">512:7135 (1393:7510)</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="field kit-w328"><div class="input"><input class="input__control" placeholder="Сумма"><div class="input__cluster"><span class="input__sep"></span><span class="input__flag" data-ds="НЕТ В DS: флаг"></span><span>⃀</span><i class="ic ic--16" data-icon="chevron-down"></i></div></div><p class="field__hint">Hint text</p></div></div><div class="kit-cap">Currency text field · <span class="kit-node">585:6157 (1434:12396)</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="input input--special kit-w328" style="width:190px"><div class="input__stack"><span class="input__mini">Сумма финансирования</span><span class="t-label-inter-14">805 430 ⃀</span></div></div></div><div class="kit-cap"><code>.input.input--special</code> · Calculator input · <span class="kit-node">5035:15648</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="info-row kit-w328"><span class="info-row__label">Ежемесячный платеж</span><span class="info-row__value">61 629,00 ⃀</span></div></div><div class="kit-cap"><code>.info-row</code> · Special info · <span class="kit-node">5037:15706</span></div></div>
+</div>
+<h3>Action input (строка с подчёркиванием) · Figma 1930:15070</h3>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo"><div class="action-input kit-w328"><div class="action-input__row"><div class="action-input__body"><span class="action-input__label">Имя</span><input class="action-input__control" value="Асан"></div><i class="ic" data-icon="clear"></i></div><div class="action-input__line"></div></div></div><div class="kit-cap"><code>.action-input</code> · Filled · <span class="kit-node">1930:15071</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="action-input is-active kit-w328"><div class="action-input__row"><div class="action-input__body"><span class="action-input__label">Фамилия</span><input class="action-input__control" value="Асанов"></div></div><div class="action-input__line"></div></div></div><div class="kit-cap"><code>.action-input.is-active</code> · Active · <span class="kit-node">1930:17475</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="action-input is-error kit-w328"><div class="action-input__row"><div class="action-input__body"><span class="action-input__label">ИНН</span><input class="action-input__control" value="21010200012345"></div></div><div class="action-input__line"></div><p class="field__error" style="padding:0">Hint text</p></div></div><div class="kit-cap"><code>.action-input.is-error</code> · Error · <span class="kit-node">1930:17493</span></div></div>
+</div>
+<h3>Select, выпадающий список, ячейки web</h3>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo kit-demo--tint"><button class="select kit-w328"><i class="ic select__icon" data-icon="heart"></i><span class="select__text">Свежие объявления</span><i class="ic select__chevron" data-icon="chevron-down"></i></button></div><div class="kit-cap"><code>.select</code> · Select · <span class="kit-node">1789:8979</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--tint"><button class="web-cell kit-w328"><span class="web-cell__body"><span class="web-cell__label">Label:</span><span class="web-cell__value">Placeholder</span></span><i class="ic select__chevron" data-icon="chevron-down"></i></button></div><div class="kit-cap"><code>.web-cell</code> · WEB: Action cell · <span class="kit-node">1216:6583</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--tint"><div class="web-cell-pair kit-w328"><button class="web-cell"><span class="web-cell__body"><span class="web-cell__label">Label:</span><span class="web-cell__value">12345</span></span><i class="ic select__chevron" data-icon="chevron-down"></i></button><button class="web-cell"><span class="web-cell__body"><span class="web-cell__label">Label:</span><span class="web-cell__value">12345</span></span><i class="ic select__chevron" data-icon="chevron-down"></i></button></div></div><div class="kit-cap"><code>.web-cell-pair</code> · WEB: Linked input · <span class="kit-node">1216:6739</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--tint"><div class="dropdown kit-w328"><button class="dropdown__item"><i class="ic" data-icon="car"></i>Placeholder</button><hr class="divider"><button class="dropdown__item is-selected"><i class="ic" data-icon="car"></i>Выбрано<i class="ic dropdown__check" data-icon="check"></i></button><hr class="divider"><button class="dropdown__item"><i class="ic" data-icon="car"></i>Placeholder</button></div></div><div class="kit-cap"><code>.dropdown > .dropdown__item</code> + <code>.divider</code> · Dropdown · <span class="kit-node">1418:7629</span></div></div>
+</div>
+
+<h3>Поля фильтра web · Figma 4480:13005, 4519:13185</h3>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo"><div class="kit-w328" style="display:flex;flex-direction:column;gap:12px">
+    <button class="filter-field"><span class="filter-field__body"><span class="filter-field__label">Марка: любая</span></span><i class="ic filter-field__chevron" data-icon="chevron-down"></i></button>
+    <button class="filter-field"><span class="filter-field__body"><span class="filter-field__mini">Марка<span class="filter-field__req">*</span></span><span class="filter-field__value">Toyota</span></span><i class="ic filter-field__chevron" data-icon="chevron-down"></i></button>
+    <button class="filter-field is-active"><span class="filter-field__body"><span class="filter-field__mini">Марка</span><span class="filter-field__value">Placeholder</span></span><i class="ic filter-field__chevron" data-icon="chevron-down"></i></button>
+    <button class="filter-field is-disabled"><span class="filter-field__body"><span class="filter-field__label">Марка: любая</span></span><i class="ic filter-field__chevron" data-icon="chevron-down"></i></button>
+  </div></div><div class="kit-cap"><code>.filter-field</code> Default / Filled / Active / Disabled · Field Container · <span class="kit-node">4480:13004, 4480:13006, 4485:12993, 4485:13031</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="filter-range kit-w328"><button class="filter-field"><span class="filter-field__body"><span class="filter-field__label">Цена от</span></span></button><button class="filter-field"><span class="filter-field__body"><span class="filter-field__label">до</span></span></button><button class="filter-field filter-field--addon"><span class="filter-field__body"><span class="filter-field__value">⃀</span></span><i class="ic filter-field__chevron" data-icon="chevron-down"></i></button></div></div><div class="kit-cap"><code>.filter-range > .filter-field</code> + <code>.filter-field--addon</code> · Multi input · <span class="kit-node">4519:13185 (4519:13184, 4519:13361)</span></div></div>
+</div>
+
+<!-- ======================= ЯЧЕЙКИ И ПЕРЕКЛЮЧАТЕЛИ ======================= -->
+<h2 id="cells">Ячейки и переключатели <span class="kit__sub">· .cell · Figma 806:9852, 429:5155, 498:6838</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo"><div class="kit-w328"><button class="cell"><span class="cell__body">Placeholder</span><i class="ic cell__tail" data-icon="chevron-right"></i></button><hr class="divider"><button class="cell"><i class="ic cell__lead" data-icon="home"></i><span class="cell__body">С иконкой слева</span><i class="ic cell__tail" data-icon="chevron-right"></i></button><hr class="divider"><button class="cell"><span class="cell__body"><span class="cell__sub">Подпись</span>Значение</span><i class="ic cell__tail" data-icon="chevron-right"></i></button></div></div><div class="kit-cap"><code>.cell .cell__body .cell__sub .cell__lead .cell__tail</code> · Action cell · <span class="kit-node">806:9879, 805:9809, 1542:9346</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="kit-w328">
+    <div class="cell cell--choice"><span class="cell__body">Чекбокс</span><label class="checkbox"><input type="checkbox" class="checkbox__input" checked><span class="checkbox__box"><i class="ic" data-icon="check"></i></span></label></div>
+    <div class="cell cell--choice"><span class="cell__body">Чекбокс выключен</span><label class="checkbox"><input type="checkbox" class="checkbox__input"><span class="checkbox__box"><i class="ic" data-icon="check"></i></span></label></div>
+    <div class="cell cell--choice"><span class="cell__body">Радио включено</span><label class="radio"><input type="radio" name="kr" class="radio__input" checked><span class="radio__box"></span></label></div>
+    <div class="cell cell--choice"><span class="cell__body">Радио</span><label class="radio"><input type="radio" name="kr" class="radio__input"><span class="radio__box"></span></label></div>
+    <div class="cell cell--choice"><span class="cell__body"><span>Переключатель</span><span class="cell__sub">Placeholder</span></span><label class="toggle"><input type="checkbox" class="toggle__input" checked><span class="toggle__track"></span></label></div>
+    <div class="cell cell--choice"><span class="cell__body">Переключатель выкл.</span><label class="toggle"><input type="checkbox" class="toggle__input"><span class="toggle__track"></span></label></div>
+  </div></div><div class="kit-cap"><code>.cell.cell--choice</code> + <code>.checkbox</code> <code>.radio</code> <code>.toggle</code> · Cells with choice · <span class="kit-node">453:5554, 453:5562, 453:5570, 453:5578, 429:5154, 429:5156</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="kit-w328"><button class="cell cell--logo"><span class="cell__logo"></span><span class="cell__body">Bentley</span><i class="ic cell__tail ic--16" data-icon="chevron-right"></i></button><hr class="divider"><button class="cell cell--logo"><span class="cell__logo"></span><span class="cell__body">Toyota</span></button></div></div><div class="kit-cap"><code>.cell.cell--logo .cell__logo</code> · Cells with car logos · <span class="kit-node">358:2728 (Selected), 358:2730 (Default)</span>. Логотипы марок — растровые слои Figma, не выгружены</div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--row" style="gap:24px">
+    <div class="kit-item"><label class="checkbox"><input type="checkbox" class="checkbox__input" checked><span class="checkbox__box"><i class="ic" data-icon="check"></i></span></label><div class="kit-cap">On 440:5230</div></div>
+    <div class="kit-item"><label class="checkbox"><input type="checkbox" class="checkbox__input"><span class="checkbox__box"></span></label><div class="kit-cap">Off 440:5241</div></div>
+    <div class="kit-item"><label class="radio"><input type="radio" name="kr2" class="radio__input" checked><span class="radio__box"></span></label><div class="kit-cap">On 613:7507</div></div>
+    <div class="kit-item"><label class="radio"><input type="radio" name="kr2" class="radio__input"><span class="radio__box"></span></label><div class="kit-cap">Off 440:5271</div></div>
+    <div class="kit-item"><label class="toggle"><input type="checkbox" class="toggle__input" checked><span class="toggle__track"></span></label><div class="kit-cap">On 429:3358</div></div>
+    <div class="kit-item"><label class="toggle"><input type="checkbox" class="toggle__input"><span class="toggle__track"></span></label><div class="kit-cap">Off 429:3360</div></div>
+  </div><div class="kit-cap"><code>.checkbox .radio .toggle</code>: состояние задаёт <code>:checked</code> или <code>.is-selected</code> (его ставит рантайм)</div></div>
+</div>
+
+<!-- ======================= ЧИПЫ, БЕЙДЖИ, МЕТКИ ======================= -->
+<h2 id="chips">Чипы, бейджи, метки <span class="kit__sub">· Figma 498:6839</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo kit-demo--row"><button class="chip"><i class="ic" data-icon="car"></i>Легковые</button><button class="chip is-selected"><i class="ic" data-icon="car"></i>Легковые</button><button class="chip">Легковые</button><button class="chip is-selected">Легковые</button></div><div class="kit-cap"><code>.chip</code> / <code>.chip.is-selected</code> h32 r20 · Chips · <span class="kit-node">1192:3643, 1192:3645, 1193:3608, 1193:3611</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--row"><span class="badge"><i class="ic" data-icon="check"></i>Action</span><span class="badge">Action</span><span class="badge badge--outline"><i class="ic" data-icon="check"></i>Action</span><span class="badge badge--outline">Action</span></div><div class="kit-cap"><code>.badge</code> / <code>.badge--outline</code> h16 · Badge · <span class="kit-node">453:5405, 453:5457, 453:5480, 453:5465</span></div></div>
+  <div class="kit-item"><div class="kit-demo" style="align-items:flex-start">
+    <span class="tag">Placeholder</span>
+    <span class="tag tag--status-s">Placeholder</span>
+    <span class="tag tag--prod">Placeholder</span>
+    <span class="tag tag--status">Placeholder</span>
+    <span class="tag tag--credit">61 000 ⃀</span>
+    <span class="tag tag--premium">1 234 567 ⃀</span>
+    <span class="tag tag--basic">1 234 567 ⃀</span>
+    <span class="tag tag--info"><i class="ic" data-icon="error"></i>Не продвигается</span>
+  </div><div class="kit-cap"><code>.tag</code> (Verified) <code>--status-s</code> <code>--prod</code> <code>--status</code> <code>--credit</code> <code>--premium</code> <code>--basic</code> <code>--info</code> · Card bages · <span class="kit-node">4069:6285, 4095:22670, 4138:12228, 4102:7366, 4069:6295, 4069:6297, 4223:12341, 4111:22467</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--dark" data-theme="dark" style="background:var(--surface-black)"><span class="benefit"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Premium</span></span><span class="benefit benefit--vip"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">VIP</span></span><span class="benefit benefit--paint"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Покраска</span></span><span class="benefit benefit--top"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">TOP</span></span><span class="benefit benefit--sticker"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Стикеры</span></span><span class="benefit benefit--up"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">UP</span></span><span class="benefit benefit--promo"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Promo</span></span><span class="benefit benefit--post"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Post</span></span><span class="benefit benefit--urgent"><span class="benefit__dot"></span><span class="benefit__text" style="color:var(--text-white)">Срочно</span></span></div><div class="kit-cap"><code>.benefit .benefit--*</code> h18 r9 · Payment benefit long · <span class="kit-node">469:9750…686:5736</span>. Иконка в круге (слой Product) не выгружена; белый текст рассчитан на тёмную карточку</div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--row"><span class="counter">9+</span><span class="avatar"><i class="ic" data-icon="user"></i></span></div><div class="kit-cap"><code>.counter</code> (18x18, счётчик вкладки) · <code>.avatar</code> (заглушка из шапки, Size=24)</div></div>
+</div>
+
+<!-- ======================= ВКЛАДКИ, СЕГМЕНТЫ, ПРОГРЕСС ======================= -->
+<h2 id="tabs">Вкладки, сегменты, пагинация, прогресс <span class="kit__sub">· Figma 498:6838, 498:6840, 841:12150</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo"><div class="tabs"><button class="tab is-selected">Apple</button><button class="tab">Apple</button><button class="tab">Apple</button></div></div><div class="kit-cap"><code>.tabs > .tab / .tab.is-selected</code> h48 · Tab / Horizontal · <span class="kit-node">982:8701 (1045:3926…3990)</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="segmented kit-w328"><button class="segmented__item is-selected">Мурабаха</button><button class="segmented__item">Мурабаха</button><button class="segmented__item">Мурабаха</button></div></div><div class="kit-cap"><code>.segmented > .segmented__item</code> · Segmented buttons · <span class="kit-node">4127:8432, 4982:7209, 4982:7219</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="segmented segmented--tabs kit-w328"><button class="segmented__item is-selected">1</button><button class="segmented__item">2</button><button class="segmented__item">3</button><button class="segmented__item">4</button></div><div class="segmented segmented--tabs segmented--round kit-w328"><button class="segmented__item is-selected"><i class="ic" data-icon="car"></i>1</button><button class="segmented__item">2</button><button class="segmented__item">3</button></div></div><div class="kit-cap"><code>.segmented--tabs</code>, <code>.segmented--round</code> · Segmented buttons / Tabs · <span class="kit-node">562:2808, 1999:9692</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="pagination"><button class="page">‹</button><button class="page is-selected">1</button><button class="page">2</button><button class="page">3</button><button class="page page--more">…</button></div></div><div class="kit-cap"><code>.pagination > .page</code> 40x40 r12 · Pagination · <span class="kit-node">3054:15575</span>. Зазор между кнопками в Figma не снят</div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="progress kit-w328"><div class="progress__line"><span class="progress__seg is-active"></span><span class="progress__seg"></span><span class="progress__seg"></span><span class="progress__seg"></span></div><div class="progress__label">Шаг 1</div></div></div><div class="kit-cap"><code>.progress</code> · Progress · <span class="kit-node">841:12252 (4 шага: 841:12303…)</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="kit-w328" style="display:flex;flex-direction:column;gap:8px"><div class="spinner">5000</div><div class="spinner spinner--2">5000</div><div class="spinner spinner--3">5000</div></div></div><div class="kit-cap"><code>.spinner .spinner--2 .spinner--3</code> · Spiner · <span class="kit-node">585:5852, 585:5854, 585:5856</span></div></div>
+</div>
+
+<!-- ======================= АЛЕРТЫ ======================= -->
+<h2 id="alerts">Алерты, тосты, баннер, подсказка <span class="kit__sub">· Figma 910:3346, 2631:5696, 4322:6955</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo">
+    <div class="toastbar kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="check-circle"></i><div class="toastbar__body"><p class="toastbar__title">Placeholder</p><p class="toastbar__text">Успешное сообщение об успехе успешного успеха</p></div></div>
+    <div class="toastbar toastbar--negative kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="error"></i><div class="toastbar__body"><p class="toastbar__title">Placeholder</p><p class="toastbar__text">Неуспешное сообщение об неуспехе успешного успеха</p></div></div>
+    <div class="toastbar toastbar--alert kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="warning"></i><div class="toastbar__body"><p class="toastbar__title">Placeholder</p><p class="toastbar__text">Неуспешное сообщение об неуспехе успешного успеха</p></div></div>
+    <div class="toastbar toastbar--attention kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="info"></i><div class="toastbar__body"><p class="toastbar__title">Placeholder</p><p class="toastbar__text">Что-то там случилось, как-то вышло.</p></div></div>
+  </div><div class="kit-cap"><code>.toastbar</code> (positive по умолчанию) <code>--negative</code> <code>--alert</code> <code>--attention</code> · Toastbar legacy с заголовком · <span class="kit-node">926:6045, 926:6047, 4318:7761, 926:6054</span></div></div>
+  <div class="kit-item"><div class="kit-demo">
+    <div class="toastbar toastbar--negative kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="error"></i><div class="toastbar__body"><p class="toastbar__text">Неуспешное сообщение об Неуспехе успешного успеха</p></div></div>
+    <div class="toastbar toastbar--attention kit-w328"><i class="ic ic--20 toastbar__icon" data-icon="info"></i><div class="toastbar__body"><p class="toastbar__text">Что-то там случилось, как-то вышло.</p></div></div>
+  </div><div class="kit-cap">Без заголовка, h52 · <span class="kit-node">926:6061, 926:6068, 4318:7768, 926:6075</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--tint">
+    <div class="toast toast--info"><i class="ic toast__icon" data-icon="info"></i><p class="toast__text">Hello Dude</p><button class="toast__close"><i class="ic" data-icon="close"></i></button></div>
+    <div class="toast toast--positive"><i class="ic toast__icon" data-icon="check-circle"></i><p class="toast__text">Hello Dude</p><button class="toast__close"><i class="ic" data-icon="close"></i></button></div>
+    <div class="toast toast--info toast--colored"><i class="ic toast__icon" data-icon="info"></i><p class="toast__text">Hello Dude</p><button class="toast__close"><i class="ic" data-icon="close"></i></button></div>
+    <div class="toast toast--negative toast--colored"><i class="ic toast__icon" data-icon="error"></i><p class="toast__text">Hello Dude</p><button class="toast__close"><i class="ic" data-icon="close"></i></button></div>
+  </div><div class="kit-cap"><code>.toast .toast--info|positive|warning|negative</code>, <code>.toast--colored</code> · Notification Toast / 4.0 · <span class="kit-node">5346:29422…29499</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="banner kit-w328" style="width:100%"><i class="ic banner__icon" data-icon="info"></i><p class="banner__text">Информативное уведомление</p><button class="banner__close"><i class="ic" data-icon="close"></i></button></div></div><div class="kit-cap"><code>.banner</code> · Notification Banner · <span class="kit-node">2291:6785</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--row"><span class="tooltip">Lable</span><span class="tooltip tooltip--alt">Lable</span></div><div class="kit-cap"><code>.tooltip</code> / <code>.tooltip--alt</code> · Tooltip standart · <span class="kit-node">2635:5745, 2637:6113</span> (в Figma чёрная плашка)</div></div>
+</div>
+
+<!-- ======================= НАВИГАЦИЯ ======================= -->
+<h2 id="nav">Навигация <span class="kit__sub">· Figma 498:6840</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo" style="padding:0"><div class="kit-w360">
+    <div class="topbar"><p class="topbar__title">Профиль</p><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="share"></i></button><button class="topbar__btn"><i class="ic" data-icon="heart"></i></button><button class="topbar__btn"><i class="ic" data-icon="more"></i></button></div></div>
+    <div class="topbar topbar--back"><button class="topbar__back"><i class="ic" data-icon="chevron-right"></i></button><button class="topbar__action">Action name</button></div>
+    <div class="topbar topbar--back"><button class="topbar__back"><i class="ic" data-icon="chevron-right"></i></button><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="sort"></i></button><button class="topbar__btn"><i class="ic" data-icon="heart"></i></button></div></div>
+    <div class="topbar topbar--detail"><button class="topbar__back"><i class="ic" data-icon="chevron-right"></i></button><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="share"></i></button><button class="topbar__btn"><i class="ic" data-icon="heart"></i></button><button class="topbar__btn"><i class="ic" data-icon="more"></i></button></div></div>
+    <div class="topbar topbar--chat"><button class="topbar__back"><i class="ic" data-icon="chevron-right"></i></button><div class="topbar__who"><span class="topbar__avatar"></span><span class="topbar__name">Джотаро<small>Online</small></span></div><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="heart"></i></button><button class="topbar__btn"><i class="ic" data-icon="more"></i></button></div></div>
+  </div></div><div class="kit-cap"><code>.topbar .topbar__title .topbar__btn .topbar__back .topbar__action</code> · Topbar · <span class="kit-node">4288:6828, 364:4555, 4141:12036, 380:3759 (.topbar--detail), 2408:10769 (.topbar--chat)</span>. Статус-бар (52) рисует рантайм</div></div>
+  <div class="kit-item"><div class="kit-demo" style="padding:0"><div class="kit-w360">
+    <div class="tabbar"><button class="tabbar__item is-selected"><i class="ic" data-icon="home"></i>Главная</button><button class="tabbar__item"><i class="ic" data-icon="heart"></i>Избранное</button><button class="tabbar__item"><span class="tabbar__plus"><i class="ic" data-icon="plus"></i></span>Продать</button><button class="tabbar__item"><i class="ic" data-icon="chat"></i>Сообщения<span class="counter tabbar__badge">9+</span></button><button class="tabbar__item"><i class="ic" data-icon="profile"></i>Профиль<span class="counter tabbar__badge">9+</span></button></div>
+  </div></div><div class="kit-cap"><code>.tabbar .tabbar__item.is-selected .tabbar__plus .tabbar__badge</code> · Bottom Bar State 1-5 · <span class="kit-node">483:4892…</span></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--dark" data-theme="dark" style="padding:0"><div class="kit-w360">
+    <div style="padding:0 12px 24px"><div class="tabbar tabbar--float"><button class="tabbar__item is-selected"><i class="ic" data-icon="home"></i>Главная</button><button class="tabbar__item"><i class="ic" data-icon="heart"></i>Избранное</button><button class="tabbar__item"><span class="tabbar__plus"><i class="ic" data-icon="plus"></i></span>Продать</button><button class="tabbar__item"><i class="ic" data-icon="chat"></i>Сообщения<span class="counter tabbar__badge">9+</span></button><button class="tabbar__item"><i class="ic" data-icon="profile"></i>Профиль<span class="counter tabbar__badge">9+</span></button></div></div>
+  </div></div><div class="kit-cap"><code>.tabbar.tabbar--float</code> · Bottom Bar V3.0 (как на «Главной») · <span class="kit-node">4671:7589</span> (показан в тёмной теме: так нарисован в Figma)</div></div>
+</div>
+<h3>Web: шапка и подвал (в Figma тёмные; контент 1200 по центру холста 1920)</h3>
+<div class="kit-demo" style="padding:0;overflow:hidden">
+  <div class="web-header">
+    <div class="web-header__top"><div class="web-header__inner"><span class="t-body-12">house.kg · bazar.kg</span><div style="display:flex;gap:16px;align-items:center"><span class="web-header__tool"><i class="ic" data-icon="favorite-add"></i>Избранное</span><span class="web-header__tool"><i class="ic" data-icon="favorite-search"></i>Ваши поиски</span><span class="web-header__tool"><i class="ic" data-icon="mail"></i>Ваши чаты</span><span class="web-header__tool"><i class="ic" data-icon="help"></i>Помощь</span><span class="web-pill"><span class="avatar"><i class="ic" data-icon="user"></i></span>Кабинет<i class="ic" data-icon="chevron-down"></i></span><span class="web-pill">РУС<i class="ic" data-icon="chevron-down"></i></span></div></div></div>
+    <div class="web-header__bar"><div class="web-header__inner"><i data-logo="mashina-pill-white" style="display:inline-block;width:127px;height:22px"></i><div class="web-nav"><a class="web-nav__item">Легковые</a><a class="web-nav__item">Коммерческие</a><a class="web-nav__item">Мото</a><a class="web-nav__item">Услуги</a><a class="web-nav__item">Запчасти</a><button class="btn btn--nav btn--positive">Создать объявление<i class="ic" data-icon="plus"></i></button></div></div></div>
+    <div class="web-header__sub"><div class="web-header__inner"><a class="web-nav__item">Куплю</a><a class="web-nav__item">Калькулятор таможни</a><a class="web-nav__item">Статистика цен</a><a class="web-nav__item">Бизнес аккаунт</a><a class="web-nav__item">Рекламодателям</a></div></div>
+  </div>
+</div>
+<div class="kit-cap"><code>.web-header .web-header__top|bar|sub .web-nav .web-nav__item .web-pill</code> · Header · <span class="kit-node">1097:7601, 3644:18177, 1964:9039, 3644:18265</span></div>
+<div class="kit-demo" style="padding:0;overflow:hidden;margin-top:16px">
+  <div class="web-footer"><div class="web-footer__main"><div style="width:480px"><i data-logo="mashina-wordmark-dark" style="display:inline-block;width:164px;height:24px"></i><p class="web-footer__text">Mashina KG – это онлайн авторынок Бишкека и Кыргызстана. Мы помогаем продать, купить и обменять авто в Кыргызстане.</p></div><div class="web-footer__links"><span>О проекте</span><span>Обратная связь</span><span>Реклама на Mashina.kg</span><span>Пользовательское соглашение</span><span>Политика конфиденциальности</span><span>Помощь</span></div><div style="width:284px;display:flex;gap:12px"><span class="store-btn">Google Play</span><span class="store-btn">App Store</span></div></div><div class="web-footer__legal"><div><span>© 2013–2025 ОсОО ESPIRU</span></div></div></div>
+</div>
+<div class="kit-cap"><code>.web-footer .web-footer__main .web-footer__links .web-footer__legal .store-btn</code> · Footer · <span class="kit-node">1099:7886</span></div>
+
+<!-- ======================= КАРТОЧКИ ======================= -->
+<h2 id="cards">Карточки и плитки <span class="kit__sub">· Figma 4937:8322 «Главная»</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo" style="padding:0"><div class="kit-phone"><article class="card">
+    <div class="card__photos"><div class="card__photo"></div><div class="card__photo"></div></div>
+    <div class="card__tags"><span class="tag tag--status-s">Тойота Центр Кыргызстан</span><span class="tag tag--status-s">Срочно</span><span class="tag tag--status-s">На заказ</span></div>
+    <div class="card__body">
+      <div class="card__head"><div class="card__prices"><div class="card__price-row"><p class="card__price">6 160 000 ⃀</p><span class="card__price-sep"></span><p class="card__price">$130 000</p></div><div class="card__credit"><span class="tag tag--credit">от 61 000 ⃀</span>в месяц</div></div><button class="card__fav is-selected"><i class="ic" data-icon="heart-filled"></i></button></div>
+      <div class="card__specs"><p class="card__title">BMW X7 3.0 AT<span class="card__dot"></span>2024<span class="card__dot"></span>3990 км</p><p class="card__meta">Дизель 3.0 (340 л.с.)<span class="card__dot"></span>автомат<span class="card__dot"></span>полный</p><p class="card__meta">Джалал-Абад</p></div>
+    </div></article></div></div><div class="kit-cap"><code>.card .card__photos .card__photo .card__tags .card__head .card__prices .card__price .card__credit .card__fav .card__specs .card__title .card__meta .card__dot</code> · [M] CarCard · <span class="kit-node">4937:8386</span>. Фото — заглушка</div></div>
+  <div class="kit-item"><div class="kit-demo"><div style="display:flex;gap:8px"><button class="tile"><span class="tile__img"></span><span class="tile__label">Мой<br>Гараж</span><span class="tile__tag">New</span></button><button class="tile tile--wide"><span class="tile__img"></span><span class="tile__label">Авторынок<br>mashina.kg</span></button></div></div><div class="kit-cap"><code>.tile .tile__img .tile__label .tile__tag</code> <code>.tile--wide</code> · Category · <span class="kit-node">4937:8326, 4937:8329</span></div></div>
+  <div class="kit-item"><div class="kit-demo"><button class="section-card kit-w328" style="width:100%"><i class="ic" data-icon="filter"></i><span class="section-card__body"><span class="section-card__title">Марка, Модель</span><span class="section-card__sub">655 558 предложений</span></span><i class="ic" data-icon="chevron-right-bold"></i></button><div class="cat-tabs kit-w328"><button class="cat-tabs__item is-selected"><i class="ic" data-icon="car"></i>Легковые</button><button class="cat-tabs__item"><i class="ic" data-icon="truck"></i>Коммерческие</button><button class="cat-tabs__item"><i class="ic" data-icon="moto"></i>Мото</button></div><div class="cat-track kit-w328"><span class="cat-track__fill"></span></div></div><div class="kit-cap"><code>.section-card</code> · Section - Search &amp; Categories · <span class="kit-node">4937:8367</span> · <code>.cat-tabs .cat-tabs__item .cat-track</code> · <span class="kit-node">4937:8349…8366</span></div></div>
+</div>
+
+<!-- ======================= ОКНО, ШТОРКА ======================= -->
+<h2 id="surfaces">Окно, шторка, скелетон <span class="kit__sub">· нет узлов в Figma, собрано из токенов</span></h2>
+<div class="kit-grid">
+  <div class="kit-item"><div class="kit-demo kit-demo--tint"><div class="modal"><h3 class="modal__title" style="margin:0;color:var(--text-primary)">Заголовок окна</h3><p class="modal__text">Текст окна. Позицию и затемнение задаёт рантайм.</p><div class="modal__actions"><button class="btn btn--primary btn--block">Основное действие</button><button class="btn btn--secondary btn--block">Отмена</button></div></div></div><div class="kit-cap"><code>.modal</code> — Нет в DS: вид собран из токенов, помечать <code>data-ds="НЕТ В DS: окно"</code></div></div>
+  <div class="kit-item"><div class="kit-demo kit-demo--tint" style="padding-bottom:0"><div class="sheet"><h3 class="sheet__title" style="margin:0;color:var(--text-primary)">Заголовок шторки</h3><div class="sheet__list"><button class="cell"><span class="cell__body">Пункт 1</span><i class="ic cell__tail" data-icon="chevron-right"></i></button><hr class="divider"><button class="cell"><span class="cell__body">Пункт 2</span><i class="ic cell__tail" data-icon="chevron-right"></i></button></div></div></div><div class="kit-cap"><code>.sheet</code> — Нет в DS (в библиотеке есть Container Action Sheets, узел на странице не найден)</div></div>
+  <div class="kit-item"><div class="kit-demo"><div class="skeleton" style="width:328px;height:64px"></div></div><div class="kit-cap"><code>.skeleton</code> — Нет в DS для светлой темы (Shimmers 4766:8037 только в тёмной)</div></div>
+</div>
+
+<!-- ======================= ПАТТЕРНЫ ЭКРАНОВ ======================= -->
+<h2 id="patterns">Паттерны экранов</h2>
+<p class="kit__sub">Тёмный экран «Главная» собран на токенах и классах каталога (кадр Figma 4937:8322, 393). Светлый вариант такой же разметки показывает, как токены ложатся на светлую тему: в Figma светлой «Главной» нет.</p>
+<div class="kit-grid kit-grid--3" style="grid-template-columns:393px 393px 360px;justify-content:space-between">
+  <div class="kit-item" data-theme="dark"><div class="kit-phone" style="background:var(--surface-bg)">
+    <div class="kit-bar"><span>9:30</span></div>
+    <div class="topbar" style="background:var(--surface-bg);padding-left:var(--sp-16)"><span class="t-h2" style="font-weight:700;color:var(--text-info)">mashina.kg</span><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="rocket"></i></button><button class="topbar__btn"><i class="ic" data-icon="search"></i></button></div></div>
+    <div style="display:flex;flex-direction:column;gap:36px;padding:12px 16px 0">
+      <div style="display:flex;gap:8px"><button class="tile"><span class="tile__img"></span><span class="tile__label">Мой<br>Гараж</span><span class="tile__tag">New</span></button><button class="tile"><span class="tile__img"></span><span class="tile__label">Авторынок<br>mashina.kg</span><span class="tile__tag">New</span></button><div style="display:flex;flex-direction:column;gap:8px"><button class="tile tile--wide" style="width:140px"><span class="tile__img"></span><span class="tile__label">Авторынок<br>mashina.kg</span></button><button class="tile tile--wide" style="width:140px"><span class="tile__img"></span><span class="tile__label">Все<br>сервисы</span></button></div></div>
+      <div style="display:flex;flex-direction:column;gap:16px"><div><div class="cat-tabs"><button class="cat-tabs__item is-selected"><i class="ic" data-icon="car"></i>Легковые</button><button class="cat-tabs__item"><i class="ic" data-icon="truck"></i>Коммерческие</button><button class="cat-tabs__item"><i class="ic" data-icon="moto"></i>Мото</button></div><div class="cat-track" style="margin-top:5px"><span class="cat-track__fill"></span></div></div>
+      <button class="section-card"><i class="ic" data-icon="filter"></i><span class="section-card__body"><span class="section-card__title">Марка, Модель</span><span class="section-card__sub">655 558 предложений</span></span><i class="ic" data-icon="chevron-right-bold"></i></button></div>
+    </div>
+    <h2 class="t-h2" style="margin:24px 16px 16px;padding:0;border:0;font-size:20px">Новые объявления</h2>
+    <article class="card"><div class="card__photos"><div class="card__photo"></div><div class="card__photo"></div></div><div class="card__tags"><span class="tag tag--status-s">Срочно</span><span class="tag tag--status-s">На заказ</span></div><div class="card__body"><div class="card__head"><div class="card__prices"><div class="card__price-row"><p class="card__price">6 160 000 ⃀</p><span class="card__price-sep"></span><p class="card__price">$130 000</p></div><div class="card__credit"><span class="tag tag--credit">от 61 000 ⃀</span>в месяц</div></div><button class="card__fav"><i class="ic" data-icon="heart"></i></button></div><div class="card__specs"><p class="card__title">BMW X7 3.0 AT<span class="card__dot"></span>2024<span class="card__dot"></span>3990 км</p><p class="card__meta">Дизель 3.0 (340 л.с.)<span class="card__dot"></span>автомат<span class="card__dot"></span>полный</p><p class="card__meta">Джалал-Абад</p></div></div></article>
+    <div style="padding:0 12px 24px"><div class="tabbar tabbar--float"><button class="tabbar__item is-selected"><i class="ic" data-icon="home"></i>Главная</button><button class="tabbar__item"><i class="ic" data-icon="heart"></i>Избранное</button><button class="tabbar__item"><span class="tabbar__plus"><i class="ic" data-icon="plus"></i></span>Продать</button><button class="tabbar__item"><i class="ic" data-icon="chat"></i>Сообщения<span class="counter tabbar__badge">9+</span></button><button class="tabbar__item"><i class="ic" data-icon="profile"></i>Профиль<span class="counter tabbar__badge">9+</span></button></div></div>
+  </div><div class="kit-cap">Главная, тёмная тема · <span class="kit-node">4937:8322</span> · поля 16, между блоками 36 и 24, заголовок секции .t-h2</div></div>
+  <div class="kit-item"><div class="kit-phone">
+    <div class="kit-bar"><span>9:30</span></div>
+    <div class="topbar" style="padding-left:var(--sp-16)"><span class="t-h2" style="font-weight:700;color:var(--text-info)">mashina.kg</span><div class="topbar__actions"><button class="topbar__btn"><i class="ic" data-icon="rocket"></i></button><button class="topbar__btn"><i class="ic" data-icon="search"></i></button></div></div>
+    <div style="display:flex;flex-direction:column;gap:36px;padding:12px 16px 0">
+      <div style="display:flex;gap:8px"><button class="tile"><span class="tile__img"></span><span class="tile__label">Мой<br>Гараж</span><span class="tile__tag">New</span></button><button class="tile"><span class="tile__img"></span><span class="tile__label">Авторынок<br>mashina.kg</span><span class="tile__tag">New</span></button><div style="display:flex;flex-direction:column;gap:8px"><button class="tile tile--wide" style="width:140px"><span class="tile__img"></span><span class="tile__label">Авторынок<br>mashina.kg</span></button><button class="tile tile--wide" style="width:140px"><span class="tile__img"></span><span class="tile__label">Все<br>сервисы</span></button></div></div>
+      <div style="display:flex;flex-direction:column;gap:16px"><div><div class="cat-tabs"><button class="cat-tabs__item is-selected"><i class="ic" data-icon="car"></i>Легковые</button><button class="cat-tabs__item"><i class="ic" data-icon="truck"></i>Коммерческие</button><button class="cat-tabs__item"><i class="ic" data-icon="moto"></i>Мото</button></div><div class="cat-track" style="margin-top:5px"><span class="cat-track__fill"></span></div></div>
+      <button class="section-card"><i class="ic" data-icon="filter"></i><span class="section-card__body"><span class="section-card__title">Марка, Модель</span><span class="section-card__sub">655 558 предложений</span></span><i class="ic" data-icon="chevron-right-bold"></i></button></div>
+    </div>
+    <h2 class="t-h2" style="margin:24px 16px 16px;padding:0;border:0;font-size:20px">Новые объявления</h2>
+    <article class="card"><div class="card__photos"><div class="card__photo"></div><div class="card__photo"></div></div><div class="card__tags"><span class="tag tag--status-s">Срочно</span><span class="tag tag--status-s">На заказ</span></div><div class="card__body"><div class="card__head"><div class="card__prices"><div class="card__price-row"><p class="card__price">6 160 000 ⃀</p><span class="card__price-sep"></span><p class="card__price">$130 000</p></div><div class="card__credit"><span class="tag tag--credit">от 61 000 ⃀</span>в месяц</div></div><button class="card__fav"><i class="ic" data-icon="heart"></i></button></div><div class="card__specs"><p class="card__title">BMW X7 3.0 AT<span class="card__dot"></span>2024<span class="card__dot"></span>3990 км</p><p class="card__meta">Дизель 3.0 (340 л.с.)<span class="card__dot"></span>автомат<span class="card__dot"></span>полный</p><p class="card__meta">Джалал-Абад</p></div></div></article>
+    <div style="padding:0 12px 24px"><div class="tabbar tabbar--float"><button class="tabbar__item is-selected"><i class="ic" data-icon="home"></i>Главная</button><button class="tabbar__item"><i class="ic" data-icon="heart"></i>Избранное</button><button class="tabbar__item"><span class="tabbar__plus"><i class="ic" data-icon="plus"></i></span>Продать</button><button class="tabbar__item"><i class="ic" data-icon="chat"></i>Сообщения<span class="counter tabbar__badge">9+</span></button><button class="tabbar__item"><i class="ic" data-icon="profile"></i>Профиль<span class="counter tabbar__badge">9+</span></button></div></div>
+  </div><div class="kit-cap">Та же разметка, светлая тема (в Figma светлой «Главной» нет; поверхности <code>--surface-secondary</code> и <code>--surface-container</code> светлые значения не подтверждены)</div></div>
+  <div class="kit-item"><div class="kit-phone" style="width:360px;padding-bottom:16px">
+    <div class="kit-bar"><span>9:30</span></div>
+    <div class="topbar topbar--back"><button class="topbar__back"><i class="ic" data-icon="chevron-right"></i></button><button class="topbar__action">Отсканировать паспорт</button></div>
+    <div style="display:flex;flex-direction:column;gap:20px;padding:12px 16px 0">
+      <div class="toastbar"><i class="ic ic--20 toastbar__icon" data-icon="check-circle"></i><div class="toastbar__body"><p class="toastbar__title">Проверьте данные</p><p class="toastbar__text">Внимательно проверьте правильность считанных с фото данных</p></div></div>
+      <div style="display:flex;flex-direction:column;gap:4px"><h1 class="t-h1" style="font:700 22px/1.5 var(--font-primary);margin:0">Заявка на покупку авто в лизинг</h1><p class="t-body-12" style="margin:0;color:var(--text-secondary);font:500 13px/16px var(--font-primary)">Ваши данные необходимы для продажи в кредит. Они не будут переданы третьим лицам.</p></div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div class="action-input"><div class="action-input__row"><div class="action-input__body"><span class="action-input__label">Имя</span><input class="action-input__control" value="Асан"></div><i class="ic" data-icon="clear"></i></div><div class="action-input__line"></div></div>
+        <div class="action-input"><div class="action-input__row"><div class="action-input__body"><span class="action-input__label">Фамилия</span><input class="action-input__control" value="Асанов"></div><i class="ic" data-icon="clear"></i></div><div class="action-input__line"></div></div>
+        <button class="cell"><span class="cell__body"><span class="cell__sub">Дата рождения</span>10.10.2000</span><i class="ic cell__tail" data-icon="chevron-right"></i></button><hr class="divider">
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;padding:4px 0"><label class="checkbox"><input type="checkbox" class="checkbox__input" checked><span class="checkbox__box"><i class="ic" data-icon="check"></i></span></label><span class="t-body-12" style="font-size:12px">Я даю свое согласие на передачу своих персональных данных в целях возможности кредитования</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:16px"><button class="btn btn--primary btn--block">Отправить заявку</button><button class="btn btn--secondary btn--block">Вернуться назад</button></div>
+    </div>
+  </div><div class="kit-cap">Форма «Ручной ввод данных» (в Figma тёмная) на светлых токенах · <span class="kit-node">2291:6567</span>. В Figma кнопки формы высотой 34, в DS 44</div></div>
+</div>
+
+</div>
+<script>
+/* Служебное: заполняет палитру цветов значениями из tokens.css (только для каталога) */
+(function () {
+  var names = ['text-primary','text-secondary','text-tertiary','text-hint','text-grey-light','text-negative','text-positive','text-info','text-link','text-white','text-dark',
+    'btn-primary','btn-secondary','btn-semantic','btn-disabled','border-default','border-active','border-negative','border-input','border-disabled',
+    'input-bg','input-readonly','input-special','surface-bg','surface-container','surface-secondary','surface-tertiary','surface-black','surface-greed','surface-accent',
+    'semantic-brand','semantic-positive','semantic-negative','semantic-grey-bg','semantic-positive-bg','semantic-negative-bg','semantic-orange-bg','semantic-info-bg',
+    'card-vip','card-red','card-purple','card-blue','card-violet','card-green','card-purple-light','card-purple-dark','card-color','toggle-on','toggle-off'];
+  var box = document.getElementById('swatches'), cs = getComputedStyle(document.documentElement), html = '';
+  names.forEach(function (n) {
+    var v = cs.getPropertyValue('--' + n).trim();
+    html += '<div class="kit-sw"><span class="kit-sw__c" style="background:var(--' + n + ')"></span><span class="kit-sw__t"><b>--' + n + '</b>' + v + '</span></div>';
+  });
+  box.innerHTML = html;
+}());
+</script>
+</body>
+</html>

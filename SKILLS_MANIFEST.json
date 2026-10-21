@@ -75,6 +75,46 @@
     },
     {
       "kind": "skill",
+      "name": "mashina-analyst",
+      "source": "~/.claude/skills/mashina-analyst",
+      "destination": "mashina-analyst",
+      "files": 11,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-designer",
+      "source": "~/.claude/skills/mashina-designer",
+      "destination": "mashina-designer",
+      "files": 73,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-report-designer",
+      "source": "~/.claude/skills/mashina-report-designer",
+      "destination": "mashina-report-designer",
+      "files": 7,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-scrum-master",
+      "source": "~/.claude/skills/mashina-scrum-master",
+      "destination": "mashina-scrum-master",
+      "files": 8,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-ux-writer",
+      "source": "~/.claude/skills/mashina-ux-writer",
+      "destination": "mashina-ux-writer",
+      "files": 5,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "prd",
       "source": "~/.claude/skills/prd",
       "destination": "prd",
@@ -251,6 +291,14 @@
     },
     {
       "kind": "skill",
+      "name": "google-workspace",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/google-workspace",
+      "destination": "variants/global/claude/skills/google-workspace",
+      "files": 9,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "twg",
       "source": "~/.claude/skills/twg",
       "destination": "twg",
@@ -286,7 +334,7 @@
       "name": "claude",
       "source": "~/.claude/agents",
       "destination": "agents/global/claude",
-      "files": 8,
+      "files": 13,
       "embeddedAgentFiles": 0
     },
     {
@@ -358,7 +406,7 @@
       "name": "archify",
       "source": "Mashina.kg/.claude/skills/archify",
       "destination": "projects/mashina-kg/skills/archify",
-      "files": 313,
+      "files": 154,
       "embeddedAgentFiles": 0
     },
     {
@@ -408,6 +456,14 @@
       "destination": "projects/mashina-kg/skills/investigate-first",
       "files": 2,
       "embeddedAgentFiles": 1
+    },
+    {
+      "kind": "skill",
+      "name": "job-graph-figjam",
+      "source": "Mashina.kg/.claude/skills/job-graph-figjam",
+      "destination": "projects/mashina-kg/skills/job-graph-figjam",
+      "files": 3,
+      "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
