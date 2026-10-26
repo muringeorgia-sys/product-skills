@@ -1,9 +1,10 @@
 # Карта Jira и Confluence Mashina.kg
 
-Снимок на 20.10.2026 по памяти проекта `jira-mashina-setup.md`. Перед работой сверь с последними пунктами памяти и живым REST.
+Снимок на 20.10.2026 по памяти проекта `jira-mashina.md`. Перед работой сверь с последними пунктами памяти и живым REST.
 
 ## Доступ
 
+- **Новые задачи и эпики - только в Jira Cloud `https://mclassified.atlassian.net`** (с 23.10.2026, коннектор claude.ai Atlassian MCP, см. «Создание эпика»). Ниже - старая Jira Server, для истории.
 - Jira Server `https://jira.mashina.kg`, Confluence Server `https://confluence.mdigital.kg`. PO залогинен в браузере Comet. Облачные коннекторы Atlassian и `twg` к этим серверам не подходят.
 - Инструменты одним вызовом: `ToolSearch` с `select:mcp__claude-in-chrome__tabs_context_mcp,mcp__claude-in-chrome__tabs_create_mcp,mcp__claude-in-chrome__navigate,mcp__claude-in-chrome__get_page_text,mcp__claude-in-chrome__read_page,mcp__claude-in-chrome__find,mcp__claude-in-chrome__javascript_tool,mcp__claude-in-chrome__computer,mcp__claude-in-chrome__list_connected_browsers,mcp__claude-in-chrome__select_browser,mcp__claude-in-chrome__tabs_close_mcp`.
 - REST через `fetch` из вкладки домена. На запись заголовок `X-Atlassian-Token: no-check`.
@@ -102,3 +103,16 @@ Legacy-статусы (Backlog 10005, Review 10013, Selected for Development 100
 - Первая строка страницы PRD: `Релиз: ДД.ММ.ГГГГ · Jira: <ключ эпика ссылкой>` (у старых — с `Дизайн: <Figma>` в начале).
 - Эпик ссылается на страницу полем 10209 «Ссылка на требования».
 - Комментарии: `GET /rest/api/content/<id>/child/comment?depth=all&expand=extensions.resolution`.
+
+## Создание эпика (чек-лист для prd-publisher и команды «грузи»)
+
+**С 23.10.2026 эпики заводятся только в новой Jira Cloud `https://mclassified.atlassian.net`** (решение PO). Старая `jira.mashina.kg` - только чтение истории, новые задачи туда не ставить. Доступ - облачный коннектор claude.ai Atlassian MCP (`mcp__claude_ai_Atlassian_MCP__*`), cloudId `d8bb86b3-821b-4ab0-be14-90e1d9acbcdc`. Confluence пока прежний (`confluence.mdigital.kg`).
+
+1. Дубль: JQL `project = PRODUCT AND issuetype = Эпик AND summary ~ "<слова фичи>"`. Подходящий эпик есть - не создавай, спроси PO.
+2. `createJiraIssue`: projectKey PRODUCT, issueType «Эпик», summary - название фичи без префиксов; «Имя эпика» `customfield_10011` = summary.
+3. Продукт `customfield_10049` = Mashina.kg (id 10025). «Где нужны изменения» `customfield_10059`: Frontend 10028, Mobile 10029, Backend 10030 - по PRD.
+4. **Релиз (fixVersions).** PO назвал дату - версия «Mashina.kg ДД/ММ/ГГГГ». **Не назвал - ставь ближайший невыпущенный релиз Mashina.kg с датой не раньше сегодня**, не спрашивая. Версии нет - спроси PO, создавать ли.
+5. «Ссылка на требования» `customfield_10055` = URL страницы Confluence.
+6. Приоритет при создании ставится Highest - поменяй на Medium (migrated) id 10002; исполнитель - PO (accountId из `atlassianUserInfo`).
+7. **Статус - «Бэклог QA анализа»** (id 10022, transition 81, `transitionJiraIssue`). Эпик виден на доске 9 (фильтр «Продукт» = Mashina.kg). Другой статус - только если PO назвал.
+8. Перечитай эпик JQL-ом: продукт, версия, статус, ссылка на требования - на месте.

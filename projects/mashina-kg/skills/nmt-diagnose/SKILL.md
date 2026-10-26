@@ -1,20 +1,6 @@
 ---
 name: nmt-diagnose
-description: >-
-  Diagnose a product against Ivan Zamesin's Next Move Theory / Advanced Jobs To
-  Be Done methodology (distinct from generic Christensen JTBD) and route to the
-  next move. Chat-first: offers to read the product context already in your
-  folder (README, surveys, reviews — with your permission, processed locally),
-  asks up to ~15 adaptive questions covering only the gaps, challenges your
-  goal, then surfaces everything the methodology finds: risks (every weak node
-  on the chain to profit, traced upstream), growth points (kill a Job,
-  Previous/Next Job, climb a level, adjacent-segment Small Jobs, underserved
-  criteria), risky assumptions (RAT) — then says what to tackle first and which
-  skill executes it. The front door for LIVE products, as nmt-market-research is
-  for new ideas. Use when the user says "diagnose my product", "what should I do
-  next", "a metric dropped", "where are my risks / growth points", or is unsure
-  what to work on. Writes nothing unless asked. Plain language; defaults to
-  English.
+description: "Diagnose a live product with Next Move Theory / AJTBD: risks on the chain to profit, growth points, risky assumptions, what to do first. Use on «diagnose my product», «a metric dropped», «what should I do next», /nmt-diagnose."
 user-invocable: true
 ---
 

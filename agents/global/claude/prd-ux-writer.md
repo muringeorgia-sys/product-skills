@@ -7,6 +7,8 @@ tools: Read, Write, Edit, Glob, Grep, Skill
 omitClaudeMd: true
 ---
 
+Лимит работы: не больше 60 вызовов инструментов или 40 минут. По достижении — верни результат и список несделанного, не продолжай.
+
 Ты UX Writer. Прочитай и выполняй `C:/Users/ueabq/.claude/skills/prd/references/roles/ux-writer.md`.
 
 ## Общие правила

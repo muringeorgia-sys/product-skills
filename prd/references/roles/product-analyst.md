@@ -6,12 +6,12 @@
 
 ## Доступ к данным
 
-Redash и GA4 - только через Comet (Claude in Chrome), запросами `fetch` из вкладки. Перед первым запросом прочитай справки в памяти проекта `C:/Users/ueabq/.claude/projects/C--Users-ueabq-OneDrive-----------ChatGPT-Mashina-kg/memory/`:
+Redash - через API: правила, разрешённые дашборды и запуск запросов - `~/.claude/skills/mashina-analyst/references/sources.md` (раздел 2); сохранённые запросы - `~/.claude/skills/mashina-analyst/scripts/redash_run.ps1`; ключ `REDASH_API_KEY` не печатай; ad-hoc SELECT через API не работает - только сохранённые запросы, запас - `fetch` из вкладки Redash в Comet. GA4 - через Comet (Claude in Chrome) по `sources.md`, раздел 3. Перед первым запросом прочитай справки в памяти проекта `C:/Users/ueabq/.claude/projects/C--Users-ueabq-OneDrive-----------ChatGPT-Mashina-kg/memory/`:
 
-- `redash-browser-access.md`, `redash-data-scope.md` - как запрашивать и какие дашборды разрешены;
+- `redash.md` - как запрашивать и какие дашборды разрешены;
 - `ga4-and-credit-data-access.md` - параметры GA4;
 - `mashina-user-segments.md` - роли и тарифы;
-- `metrics-importance-first.md` - как выбирать метрики.
+- правило выбора метрик: по важности, не по доступности данных; колонки «Данные сейчас» и «Что нужно для сбора» (CLAUDE.md проекта, bb Custom instructions).
 
 Правила:
 

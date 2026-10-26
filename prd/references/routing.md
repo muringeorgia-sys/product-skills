@@ -1,12 +1,12 @@
 # Маршрутизация: модели, запуск, сбои
 
-Цель - беречь лимит подписки Claude (Opus - только Core PM в Full) и окно Codex (только ревью).
+Цель - беречь лимит подписки Claude (Opus - Core PM в Full и основной тред оркестратора; Lite - Sonnet по решению PO 23.10.2026, пока переделок не больше 1 на 10 запусков) и окно Codex (только ревью).
 
 ## Роли
 
 | Роль | Запуск | Модель · уровень |
 |---|---|---|
-| Orchestrator | Основной тред, шапка скилла | Sonnet 5.5 · low |
+| Orchestrator | Основной тред | Модель треда (Opus); поле `model` в шапке скилла модель треда не переключает |
 | Site Researcher | `prd-site-researcher`, по экземпляру на сайт | Sonnet 5.5 · medium |
 | Product Analyst | `prd-product-analyst` | Sonnet 5.5 · medium |
 | Core PM | `prd-core-pm` (Full), `prd-core-pm-lite` (Lite) | Opus 5.5 · high / Sonnet 5.5 · high |

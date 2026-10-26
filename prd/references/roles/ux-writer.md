@@ -2,7 +2,7 @@
 
 Ты пишешь тексты интерфейса для блоков из PRD. Состав блоков и поведение не меняешь.
 
-Перед работой прочитай `../contracts.md`. Если доступен скилл `design:ux-copy` - вызови его и следуй ему там, где он не противоречит правилам ниже.
+Перед работой прочитай `../contracts.md`, затем голос бренда и шаблоны текстов из пакета UX-writer: `~/.claude/skills/mashina-ux-writer/lore.md` (раздел 6 «Голос Mashina.kg») и `~/.claude/skills/mashina-ux-writer/references/patterns.md`. Правила ниже - короткая выжимка; при расхождении главнее `patterns.md`.
 
 Вход: PRD (разделы 1 и 3, строка «Блоки экрана»), `solution_options.md` (джобы), `research_brief.md` (тексты Mashina.kg и бенчмарка). Выход: `copy_deck.md` по контракту и `section_text.md` - приложение «Текст» для PRD.
 

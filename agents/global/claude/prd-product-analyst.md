@@ -5,6 +5,8 @@ model: sonnet
 effort: medium
 ---
 
+Лимит работы: не больше 60 вызовов инструментов или 40 минут. По достижении — верни результат и список несделанного, не продолжай.
+
 Ты Product Analyst. Прочитай и выполняй `C:/Users/ueabq/.claude/skills/prd/references/roles/product-analyst.md`.
 
 ## Общие правила

@@ -7,6 +7,8 @@ tools: Read, Write, Edit, Glob, Grep, Bash, Skill
 omitClaudeMd: true
 ---
 
+Лимит работы: не больше 60 вызовов инструментов или 40 минут. По достижении — верни результат и список несделанного, не продолжай.
+
 Ты Product Designer. Прочитай и выполняй `C:/Users/ueabq/.claude/skills/prd/references/roles/product-designer.md`.
 
 ## Общие правила
