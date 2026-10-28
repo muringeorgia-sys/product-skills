@@ -275,6 +275,14 @@
     },
     {
       "kind": "skill",
+      "name": "computer-use",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/computer-use",
+      "destination": "variants/global/claude/skills/computer-use",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "google-workspace",
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/google-workspace",
       "destination": "variants/global/claude/skills/google-workspace",
@@ -296,6 +304,14 @@
       "destination": "variants/global/claude/skills/skill-creator",
       "files": 18,
       "embeddedAgentFiles": 3
+    },
+    {
+      "kind": "skill",
+      "name": "xlsx",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/xlsx",
+      "destination": "variants/global/claude/skills/xlsx",
+      "files": 53,
+      "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
@@ -411,9 +427,33 @@
     },
     {
       "kind": "skill",
+      "name": "nmt-analyze-interviews",
+      "source": "Mashina.kg/.claude/skills/nmt-analyze-interviews",
+      "destination": "projects/mashina-kg/skills/nmt-analyze-interviews",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "nmt-chat",
       "source": "Mashina.kg/.claude/skills/nmt-chat",
       "destination": "projects/mashina-kg/skills/nmt-chat",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "nmt-craft-go-to-market",
+      "source": "Mashina.kg/.claude/skills/nmt-craft-go-to-market",
+      "destination": "projects/mashina-kg/skills/nmt-craft-go-to-market",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "nmt-craft-value-proposition",
+      "source": "Mashina.kg/.claude/skills/nmt-craft-value-proposition",
+      "destination": "projects/mashina-kg/skills/nmt-craft-value-proposition",
       "files": 2,
       "embeddedAgentFiles": 0
     },
@@ -431,6 +471,22 @@
       "source": "Mashina.kg/.claude/skills/nmt-market-research",
       "destination": "projects/mashina-kg/skills/nmt-market-research",
       "files": 3,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "nmt-product-requirements",
+      "source": "Mashina.kg/.claude/skills/nmt-product-requirements",
+      "destination": "projects/mashina-kg/skills/nmt-product-requirements",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "nmt-update",
+      "source": "Mashina.kg/.claude/skills/nmt-update",
+      "destination": "projects/mashina-kg/skills/nmt-update",
+      "files": 1,
       "embeddedAgentFiles": 0
     },
     {
