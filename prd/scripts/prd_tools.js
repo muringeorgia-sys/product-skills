@@ -2,12 +2,46 @@
 // Сборка и проверка PRD без модели.
 //   node prd_tools.js assemble <prd.md> <папка материалов>   (можно запускать повторно)
 //   node prd_tools.js check <prd.md> [lite|full]             (по умолчанию lite)
+//   node prd_tools.js notes <файл> [файл...]                 (вопросы и допущения перед «грузи»)
 const fs = require('fs');
 const path = require('path');
 
 const LIMITS = { lite: { words: 600, criteria: 8 }, full: { words: 1200, criteria: 12 } }; // слова - разделы 1-4
 const open = (n) => `<!-- SECTION_${n} -->`;
 const close = (n) => `<!-- /SECTION_${n} -->`;
+
+// Вопросы и допущения в документе: правило «Чистый документ» в prd-template.md.
+const NOTE_MARKS = [
+  /допущени/i,
+  /открыт\S*\s+вопрос/i,
+  /под вопросом/i,
+  /(?<![\p{L}\p{N}])TBD(?![\p{L}\p{N}])/u,
+  /\?{2,}/,
+  /(нужно|надо|требуется|необходимо|следует)\s+(уточнить|проверить|подтвердить|сверить|выяснить)/i,
+  /требует\S*\s+уточнени/i,
+  /уточняется|уточняются/i,
+  /сверить\s+(на\s+(preprod|проде)|с\s+(бэкенд|дизайн|SEO|маркетинг|юрист))/i,
+];
+
+function findNotes(text) {
+  const hits = [];
+  text.split(/\r?\n/).forEach((line, i) => {
+    const clean = line.replace(/data:[^\s"')]+/g, ''); // картинки внутри HTML
+    if (NOTE_MARKS.some((re) => re.test(clean))) hits.push(`${i + 1}: ${clean.trim().slice(0, 160)}`);
+  });
+  return hits;
+}
+
+function notes(files) {
+  let found = 0;
+  for (const file of files) {
+    const hits = findNotes(fs.readFileSync(file, 'utf8'));
+    found += hits.length;
+    if (hits.length) console.log(`${file}\n  ${hits.join('\n  ')}`);
+  }
+  console.log(found ? `Найдено строк: ${found}` : 'OK');
+  if (found) process.exit(1);
+}
 
 // Раздел вставляется между открывающей и закрывающей меткой.
 // Повторный запуск заменяет содержимое между метками свежим section_N.md.
@@ -70,6 +104,7 @@ function check(prdPath, mode) {
     if (raw.includes(open(n)) && !raw.includes(close(n))) problems.push(`раздел ${n}: метка не заменена`);
   }
   if (/```mermaid/.test(raw)) problems.push('найден mermaid');
+  for (const hit of findNotes(raw)) problems.push(`вопрос или допущение, строка ${hit}`);
   if (problems.length) { console.log('ПРОБЛЕМЫ:\n- ' + problems.join('\n- ')); process.exit(1); }
   console.log('OK');
 }
@@ -77,4 +112,5 @@ function check(prdPath, mode) {
 const [cmd, a, b] = process.argv.slice(2);
 if (cmd === 'assemble' && a && b) assemble(a, b);
 else if (cmd === 'check' && a) check(a, b);
-else { console.log('Использование: prd_tools.js assemble <prd.md> <папка> | check <prd.md> [lite|full]'); process.exit(2); }
+else if (cmd === 'notes' && a) notes(process.argv.slice(3));
+else { console.log('Использование: prd_tools.js assemble <prd.md> <папка> | check <prd.md> [lite|full] | notes <файл> [файл...]'); process.exit(2); }

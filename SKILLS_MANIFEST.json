@@ -22,7 +22,7 @@
       "name": "ajtbd-interview-guide",
       "source": "~/.claude/skills/ajtbd-interview-guide",
       "destination": "ajtbd-interview-guide",
-      "files": 10,
+      "files": 14,
       "embeddedAgentFiles": 0
     },
     {
@@ -79,6 +79,14 @@
       "source": "~/.claude/skills/mashina-designer",
       "destination": "mashina-designer",
       "files": 73,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-mechanics",
+      "source": "~/.claude/skills/mashina-mechanics",
+      "destination": "mashina-mechanics",
+      "files": 4,
       "embeddedAgentFiles": 0
     },
     {
@@ -283,10 +291,26 @@
     },
     {
       "kind": "skill",
+      "name": "docx",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/docx",
+      "destination": "variants/global/claude/skills/docx",
+      "files": 61,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "google-workspace",
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/google-workspace",
       "destination": "variants/global/claude/skills/google-workspace",
       "files": 9,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "pdf",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/pdf",
+      "destination": "variants/global/claude/skills/pdf",
+      "files": 12,
       "embeddedAgentFiles": 0
     },
     {
@@ -311,6 +335,14 @@
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/xlsx",
       "destination": "variants/global/claude/skills/xlsx",
       "files": 53,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "ux-test",
+      "source": "~/.claude/skills/ux-test",
+      "destination": "ux-test",
+      "files": 4,
       "embeddedAgentFiles": 0
     },
     {

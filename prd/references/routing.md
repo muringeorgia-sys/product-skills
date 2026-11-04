@@ -12,7 +12,7 @@
 | Core PM | `prd-core-pm` (Full), `prd-core-pm-lite` (Lite) | Opus 5.5 · high / Sonnet 5.5 · high |
 | UX Writer | `prd-ux-writer` | Sonnet 5.5 · medium |
 | Product Designer | `prd-product-designer` | Sonnet 5.5 · medium |
-| Reviewer | codex-companion, `gpt-6.1-sol` | medium (Lite и Full) |
+| Reviewer | codex-companion, `gpt-6.1-sol` | xhigh (Lite и Full) |
 | Чистка | `prd-cleanup` | Haiku 4.5 · low |
 | Publisher | `prd-publisher` | Sonnet 5.5 · low |
 
@@ -25,7 +25,7 @@
 Самая новая `~/.claude/plugins/cache/openai-codex/codex/*/scripts/codex-companion.mjs`, из корня проекта, таймаут 600000 мс:
 
 ```bash
-node "<скрипт>" task --model gpt-6.1-sol --effort medium --prompt-file "<файл промпта>"   # в Full добавь --write: ревьюер пишет review_comments.md
+node "<скрипт>" task --model gpt-6.1-sol --effort xhigh --prompt-file "<файл промпта>"   # в Full добавь --write: ревьюер пишет review_comments.md
 ```
 
 Одно ревью Full заняло около 65% 5-часового окна Codex Plus. Поэтому ревьюер читает только PRD, `copy_deck.md`, `wireframes.md` и `solution_options.md` - не исследования и не метрики. Перед запуском `bb settings usage`: окно Codex занято больше 50% - ревью делает `general-purpose` с `model: sonnet` по тому же промпту.

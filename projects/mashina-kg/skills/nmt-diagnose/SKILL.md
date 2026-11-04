@@ -4,6 +4,14 @@ description: "Diagnose a live product with Next Move Theory / AJTBD: risks on th
 user-invocable: true
 ---
 
+<!-- mashina-additions:start (03_scripts/stable/nmt_patch, не править здесь) -->
+**Mashina.kg project additions (apply on top of the canon).** Source: `NMT-Дополнения/README.md`.
+- §2.13 Retention drop: (1) the segment has no frequent Jobs, or (2) Jobs are frequent but not with us — not activated, activated and forgot, hit a problem and went back. Fix blocking frequent Jobs first.
+- §2.13 Lead → payment: split buyers by ABCDX or Ellis → interview A/B → prioritise importance × frequency → solution interview plus UX test with similar non-buyers.
+- §2.5 Churn walk-through in 6 steps; «no repeat purchase» ≠ «left for a competitor». Graph depth follows the task: activation, conversion, retention, acquisition.
+- §2.7 business task → mechanics table; revenue-plan questions → project skill `mashina-mechanics`. Validation of a prototype → `ux-test`.
+<!-- mashina-additions:end -->
+
 # Diagnose — the Next Move Theory product diagnostic
 
 A chat-first diagnostic for a live product. It finds your real risks and best growth moves, says which one to tackle first, and points you to the skill that does it.

@@ -4,6 +4,14 @@ description: Generate the strongest possible Value Proposition for a chosen segm
 user-invocable: true
 ---
 
+<!-- mashina-additions:start (03_scripts/stable/nmt_patch, не править здесь) -->
+**Mashina.kg project additions (apply on top of the canon).** Source: `NMT-Дополнения/README.md`.
+- §2.7: Zamesin's Airtable «business task → mechanics». Mechanics 13, 14, 16, 18, 19 are not in the canon catalog — walk them too. Business task first, then mechanics, then where to look in the graph.
+- §2.7: always check whether the money is in the **next** Job (for Mashina: credit, leasing, paperwork, insurance).
+- §2.8: Impact on a 1–10 scale where 10 = a stated hypothesis of the maximum metric value; no number — the scale does not work.
+- For a revenue-plan question (not a segment VP) hand over to the project skill `mashina-mechanics`.
+<!-- mashina-additions:end -->
+
 # Craft Value Proposition v2
 
 > **New here, or not sure this is the right skill?** Start right here — or run `/nmt-chat`, describe your situation, and it points you to the right one. Quick map: **new idea →** `nmt-market-research` · **live product or a metric moved →** `nmt-diagnose` · **have customer interviews →** `nmt-analyze-interviews` · **ready to build →** `nmt-product-requirements` · **positioning / launch copy →** `nmt-craft-value-proposition` → `nmt-craft-go-to-market`.

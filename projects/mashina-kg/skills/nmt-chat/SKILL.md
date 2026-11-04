@@ -4,6 +4,13 @@ description: "Senior product advisor in Ivan Zamesin's Next Move Theory / AJTBD 
 user-invocable: true
 ---
 
+<!-- mashina-additions:start (03_scripts/stable/nmt_patch, не править здесь) -->
+**Mashina.kg project additions (read before routing).**
+- Methodology beyond the canon: `NMT-Дополнения/README.md`. The canon wins, except rows marked «берём из источника» in its section 3.
+- NMT base of this project: `Skills-Results/mashina.kg/nmt-base/SUMMARY.md` — check it before asking the user about segments and Jobs.
+- Route to project skills: interview guide, B2B interview, recruiting → `ajtbd-interview-guide`; UX test of a prototype → `ux-test`; mechanics and hypotheses for a revenue plan → `mashina-mechanics`; PRD for the team → `prd`.
+<!-- mashina-additions:end -->
+
 # Ask NMT — the conversational Next Move Theory advisor v1
 
 A senior product advisor you can talk to. Not a one-shot producer — a **multi-turn dialogue partner** that thinks in Ivan Zamesin's methodology and answers from the canon.
