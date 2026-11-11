@@ -110,7 +110,7 @@
       "name": "prd",
       "source": "~/.claude/skills/prd",
       "destination": "prd",
-      "files": 19,
+      "files": 29,
       "embeddedAgentFiles": 0
     },
     {
@@ -279,6 +279,14 @@
       "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/xlsx",
       "destination": "xlsx",
       "files": 53,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "built-in-browser",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/built-in-browser",
+      "destination": "variants/global/claude/skills/built-in-browser",
+      "files": 2,
       "embeddedAgentFiles": 0
     },
     {
@@ -526,7 +534,7 @@
       "name": "requirements-to-design",
       "source": "Mashina.kg/.claude/skills/requirements-to-design",
       "destination": "projects/mashina-kg/skills/requirements-to-design",
-      "files": 3,
+      "files": 4,
       "embeddedAgentFiles": 1
     }
   ]

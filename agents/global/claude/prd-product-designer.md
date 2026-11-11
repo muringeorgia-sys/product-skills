@@ -1,6 +1,6 @@
 ---
 name: prd-product-designer
-description: Product Designer конвейера /prd - раскладка экрана desktop и mobile, раздел 4 PRD. Вызывается только скиллом prd.
+description: "Product Designer конвейера /prd - раскладка экрана desktop и mobile, раздел 4 PRD, сравнение «сейчас в проде / будет» (Lite и Full). Вызывается только скиллом prd."
 model: sonnet
 effort: medium
 tools: Read, Write, Edit, Glob, Grep, Bash, Skill

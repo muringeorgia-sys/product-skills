@@ -11,7 +11,7 @@
 | Product Analyst | `prd-product-analyst` | Sonnet 5.5 · medium |
 | Core PM | `prd-core-pm` (Full), `prd-core-pm-lite` (Lite) | Opus 5.5 · high / Sonnet 5.5 · high |
 | UX Writer | `prd-ux-writer` | Sonnet 5.5 · medium |
-| Product Designer | `prd-product-designer` | Sonnet 5.5 · medium |
+| Product Designer | `prd-product-designer`; в Lite - только сравнение «сейчас / будет» | Sonnet 5.5 · medium |
 | Reviewer | codex-companion, `gpt-6.1-sol` | xhigh (Lite и Full) |
 | Чистка | `prd-cleanup` | Haiku 4.5 · low |
 | Publisher | `prd-publisher` | Sonnet 5.5 · low |
@@ -28,10 +28,11 @@
 node "<скрипт>" task --model gpt-6.1-sol --effort xhigh --prompt-file "<файл промпта>"   # в Full добавь --write: ревьюер пишет review_comments.md
 ```
 
-Одно ревью Full заняло около 65% 5-часового окна Codex Plus. Поэтому ревьюер читает только PRD, `copy_deck.md`, `wireframes.md` и `solution_options.md` - не исследования и не метрики. Перед запуском `bb settings usage`: окно Codex занято больше 50% - ревью делает `general-purpose` с `model: sonnet` по тому же промпту.
+Одно ревью Full заняло около 65% 5-часового окна Codex Plus. Поэтому ревьюер читает только PRD, `copy_deck.md`, `wireframes.md` и `solution_options.md` - не исследования и не метрики. Ревьюер в Lite и Full - всегда Codex (ChatGPT) `gpt-6.1-sol` · `xhigh`. Claude-моделью ревью не подменяй. Перед запуском `bb settings usage`: окно Codex занято больше 50% - всё равно запускай и напиши об этом в ответе.
 
 ## Браузер и съёмка
 
+- Скриншоты прода для сравнения «сейчас / будет» - скриптом `render_html.js` по адресу, с `--mobile` для 390 (`before-after.md`). Это настоящая мобильная вёрстка сайта, эмулятор для неё не нужен. Экраны за входом - bb-browser.
 - Исследователи работают в управляемом браузере bb-browser, у каждого своя вкладка. До запуска сделай один вызов bb-browser сам (список вкладок) - иначе демон не поднимается при параллельном старте.
 - Скриншот MCP-инструментом не работает: `bb-browser screenshot --tab <id>`.
 - **Мобильная версия.** Эмуляции телефона в bb-browser нет: уменьшенное окно даёт desktop-раскладку. Мобильный образец сразу снимай в Android-эмуляторе (`site-mobile-researcher/references/android-emulator.md`): мобильный сайт в Chrome эмулятора или приложение, если пользователь выбрал его. Эмулятор не запускается - попроси пользователя 6-10 скриншотов с телефона в `evidence/mobile_user/`. Исследователя на мобильную версию в bb-browser не отправляй.
@@ -45,7 +46,7 @@ node "<скрипт>" task --model gpt-6.1-sol --effort xhigh --prompt-file "<ф
 | Отчёт не прошёл проверку | Один повтор тем же агентом: что именно не хватает |
 | Агент не ответил | Один повтор; затем статус «частично» в ответе и `run_log.md` |
 | Агент сообщил «готово» про запись во внешнюю систему | Проверь сам по чек-листу из `publish.md` - отчёт агента не доказательство |
-| Codex недоступен | Ревью - `general-purpose` с `model: sonnet` |
+| Codex недоступен | Ревью не подменяй: доделай без него, в ответе «Codex: недоступен - <причина>», предложи повторить ревью позже |
 
 Работу специалиста от его имени не выполняй. Исключение - проверка и исправление публикации (`publish.md`).
 
@@ -55,6 +56,6 @@ node "<скрипт>" task --model gpt-6.1-sol --effort xhigh --prompt-file "<ф
 
 ## Провайдер без субагентов
 
-Codex и другие провайдеры без Agent - только Lite: один агент по `roles/core-pm.md`, раздел «Режим Lite».
+Codex и другие провайдеры без Agent - только Lite: один агент по `roles/core-pm.md`, раздел «Режим Lite». После PRD тот же агент делает сравнение по `roles/product-designer.md`, режим «сейчас / будет».
 
 Внешние треды bb и бесплатные модели OpenCode не используются (решение 2026-10-13: бесплатная модель упала через 85 минут без отчёта, Codex как исследователь съел окно). Только по прямой просьбе пользователя.

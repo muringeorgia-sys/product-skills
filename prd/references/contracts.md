@@ -6,13 +6,15 @@
 
 ```
 <спринт>/<Фича>.md                     PRD
+<спринт>/<Фича>.before-after.html      Product Designer, Lite и Full
 <спринт>/<Фича>_материалы/
   brief.md                             Orchestrator
   run_log.md                           Orchestrator
   research_current.md                  Site Researcher, Mashina.kg
   research_benchmark.md                Site Researcher, бенчмарк
   research_brief.md                    склейка двух файлов выше
-  evidence/                            скриншоты исследователей, экраны дизайнера
+  evidence/                            скриншоты исследователей, экраны дизайнера,
+                                       now_* (прод) и next_* (будет) для сравнения
   options_sketches.md                  Product Designer, стоп-точка
   metrics_and_hypotheses.md            Product Analyst
   solution_options.md                  Core PM, проход 1
@@ -21,6 +23,7 @@
   copy_deck.md                         UX Writer
   section_text.md                      UX Writer, приложение «Текст»
   wireframes.md                        Product Designer
+  before_after.json                    Product Designer, Lite и Full
   review_comments.md                   PRD Reviewer
 ```
 
@@ -37,7 +40,7 @@
 - <раздел и пункт>: <что принято> · если неверно: <что изменится>
 ```
 
-В PRD, `section_*.md`, `copy_deck.md`, `wireframes.md`, `<Фича>.design.html` и схемах их нет - правила в `prd-template.md`, «Чистый документ». Рабочие файлы, которые не публикуются (исследования, метрики, `solution_options.md`), пишутся по своим контрактам.
+В PRD, `section_*.md`, `copy_deck.md`, `wireframes.md`, `<Фича>.design.html`, `<Фича>.before-after.html` и схемах их нет - правила в `prd-template.md`, «Чистый документ». Рабочие файлы, которые не публикуются (исследования, метрики, `solution_options.md`), пишутся по своим контрактам.
 
 ## brief.md - до 300 слов
 
@@ -153,6 +156,10 @@ ID блоков (B1, B2...) - общий ключ для `copy_deck.md`, `wirefr
 ```
 
 `section_4.md` - то, что вставляется в раздел 4 PRD: картинка экрана средней детализации или схема по правилам `visualization.md`, без заголовка раздела.
+
+## before_after.json и <Фича>.before-after.html
+
+Сравнение «Сейчас в проде / Будет» - в Lite и Full. Формат JSON, правила и сборка - `before-after.md`. HTML собирается только скриптом `build_before_after.js`, руками не правится.
 
 ## options_sketches.md
 
