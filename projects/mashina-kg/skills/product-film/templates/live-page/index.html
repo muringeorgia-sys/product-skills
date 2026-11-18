@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>film · AI-лаборатория</title>
+<style>
+  @font-face { font-family: 'Unbounded'; src: url('/__film/fonts/unbounded.woff2') format('woff2'); font-weight: 200 900; }
+  @font-face { font-family: 'Commissioner'; src: url('/__film/fonts/commissioner.woff2') format('woff2'); font-weight: 100 900; }
+  :root { --paper:#f4f0e6; --ink:#14180f; --lime:#cbff16; --on-dark:#c0c8b6; --on-dark-strong:#eef2e8; }
+  html, body { margin:0; padding:0; background:var(--paper); }
+  #stage { position:relative; width:1920px; height:1080px; overflow:hidden; background:var(--paper); }
+  #cam { position:absolute; left:0; top:0; width:1440px; height:900px; transform-origin:0 0; }
+  #page { width:1440px; height:900px; border:0; display:block; background:var(--paper); }
+  #cursor { position:absolute; left:0; top:0; width:44px; height:44px; pointer-events:none; z-index:20; opacity:0; }
+  #end { position:absolute; inset:0; background:var(--ink); opacity:0; z-index:30;
+         display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  #end .mark { width:176px; height:176px; border-radius:10px; image-rendering:auto; }
+  #end .name { margin-top:44px; font-family:'Unbounded'; font-weight:650; font-size:58px; letter-spacing:-0.035em; color:var(--on-dark-strong); }
+  #end .url { margin-top:22px; font-family:ui-monospace, 'DejaVu Sans Mono', monospace; font-size:30px; color:var(--lime); letter-spacing:0.02em; }
+  #end .rule { position:absolute; left:0; top:300px; height:1px; width:100%; background:rgba(238,242,232,.18); transform-origin:0 0; }
+  #end .cross { position:absolute; width:22px; height:22px; }
+  #end .cross::before, #end .cross::after { content:''; position:absolute; background:rgba(238,242,232,.45); }
+  #end .cross::before { left:10px; top:0; width:1px; height:22px; }
+  #end .cross::after { top:10px; left:0; height:1px; width:22px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="cam"><iframe id="page" src="/lab" scrolling="no"></iframe></div>
+  <svg id="cursor" viewBox="0 0 44 44"><path d="M9 5 L9 36 L17 28.5 L22.5 40 L28 37.5 L22.6 26.3 L33 26 Z" fill="#14180f" stroke="#f4f0e6" stroke-width="2.4" stroke-linejoin="round"/></svg>
+  <div id="end">
+    <div class="rule"></div>
+    <div class="cross" style="left:220px;top:160px"></div>
+    <div class="cross" style="right:220px;bottom:160px"></div>
+    <img class="mark" src="/assets/lab-design/lab-mark.png" alt="">
+    <div class="name">AI-лаборатория Глеба Кудрявцева</div>
+    <div class="url">glebkudr.com/lab</div>
+  </div>
+</div>
+<script src="/__film/render.js"></script>
+</body>
+</html>

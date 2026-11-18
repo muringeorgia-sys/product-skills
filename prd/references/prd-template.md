@@ -101,7 +101,7 @@
 
 ## 4. Визуализация
 
-![<Название схемы>](.archify/<type>-<slug>-<YYYYMMDD-HHMMSS>/png/<файл>.light.png)
+![<Название схемы>](.excalidraw/<имя>.png)
 
 ## 5. Аналитика
 

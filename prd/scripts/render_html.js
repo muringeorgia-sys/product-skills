@@ -5,6 +5,8 @@
 //   --scale    плотность пикселей, по умолчанию 2
 //   --dismiss  нажать кнопку с этим текстом, если она есть (окно региона, cookies)
 //   --wait     пауза после загрузки, по умолчанию 1500 мс для адреса и 0 для файла
+//   --no-notes  снять пометки экрана средней детализации (класс notes у body): рамки, ярлыки, ID блоков, линию первого экрана.
+//               Так рендерятся экраны для сравнения «сейчас / будет» и прототипа
 //   --max-height  предел высоты снимка страницы прода в CSS px, по умолчанию 6000 (лента с подгрузкой бесконечна)
 // Для скриншотов прода бери .jpg: файл в 5-10 раз меньше PNG.
 // Запускать из корня проекта: playwright берётся из его node_modules.
@@ -16,6 +18,7 @@ const args = process.argv.slice(2);
 const opt = (name) => { const i = args.indexOf(name); if (i < 0) return undefined; const v = args[i + 1]; args.splice(i, 2); return v; };
 const flag = (name) => { const i = args.indexOf(name); if (i < 0) return false; args.splice(i, 1); return true; };
 const mobile = flag('--mobile');
+const noNotes = flag('--no-notes');
 const scale = Number(opt('--scale')) || 2;
 const dismiss = opt('--dismiss');
 const waitArg = opt('--wait');
@@ -57,6 +60,7 @@ try {
     console.log('страница не дождалась тишины в сети за 60 с, снимаю как есть');
   }
   if (dismiss) await page.getByText(dismiss, { exact: false }).first().click({ timeout: 3000 }).catch(() => console.log(`кнопка «${dismiss}» не найдена`));
+  if (noNotes) await page.evaluate(() => { document.documentElement.classList.remove('notes'); document.body.classList.remove('notes'); });
   const jpg = /\.jpe?g$/i.test(out);
   const shot = jpg ? { type: 'jpeg', quality: 80 } : {};
   let height;

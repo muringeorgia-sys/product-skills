@@ -1,0 +1,4 @@
+interface:
+  display_name: "Голос Олега"
+  short_description: "Пишет и проверяет тексты в голосе Олега"
+  default_prompt: "Используй $oleg-tone-of-voice, чтобы переписать текст в голосе Олега."

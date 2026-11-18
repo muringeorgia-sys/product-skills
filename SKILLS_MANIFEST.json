@@ -14,6 +14,8 @@
     "credentials",
     "sessions",
     ".cache",
+    ".trash",
+    ".staging",
     "dotenv files, credentials, cookies, private keys"
   ],
   "items": [
@@ -43,9 +45,33 @@
     },
     {
       "kind": "skill",
+      "name": "bro",
+      "source": "~/.claude/skills/bro",
+      "destination": "bro",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "feature-launch-planning",
       "source": "~/.claude/skills/feature-launch-planning",
       "destination": "feature-launch-planning",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "grilling",
+      "source": "~/.claude/skills/grilling",
+      "destination": "grilling",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "ketchup",
+      "source": "~/.claude/skills/ketchup",
+      "destination": "ketchup",
       "files": 1,
       "embeddedAgentFiles": 0
     },
@@ -102,7 +128,7 @@
       "name": "mashina-ux-writer",
       "source": "~/.claude/skills/mashina-ux-writer",
       "destination": "mashina-ux-writer",
-      "files": 5,
+      "files": 6,
       "embeddedAgentFiles": 0
     },
     {
@@ -110,7 +136,7 @@
       "name": "prd",
       "source": "~/.claude/skills/prd",
       "destination": "prd",
-      "files": 29,
+      "files": 42,
       "embeddedAgentFiles": 0
     },
     {
@@ -123,9 +149,41 @@
     },
     {
       "kind": "skill",
+      "name": "recall",
+      "source": "~/.claude/skills/recall",
+      "destination": "recall",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "reflect",
+      "source": "~/.claude/skills/reflect",
+      "destination": "reflect",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "release-channel-copy",
       "source": "~/.claude/skills/release-channel-copy",
       "destination": "release-channel-copy",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "release-check",
+      "source": "~/.claude/skills/release-check",
+      "destination": "release-check",
+      "files": 2,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "sharpen",
+      "source": "~/.claude/skills/sharpen",
+      "destination": "sharpen",
       "files": 1,
       "embeddedAgentFiles": 0
     },
@@ -140,23 +198,15 @@
     {
       "kind": "skill",
       "name": "built-in-browser",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/built-in-browser",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/built-in-browser",
       "destination": "built-in-browser",
       "files": 2,
       "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
-      "name": "canvas-design",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/canvas-design",
-      "destination": "canvas-design",
-      "files": 83,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "chrome-browser",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/chrome-browser",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/chrome-browser",
       "destination": "chrome-browser",
       "files": 2,
       "embeddedAgentFiles": 0
@@ -164,23 +214,15 @@
     {
       "kind": "skill",
       "name": "computer-use",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/computer-use",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/computer-use",
       "destination": "computer-use",
       "files": 2,
       "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
-      "name": "cover-letter-oleg",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/cover-letter-oleg",
-      "destination": "cover-letter-oleg",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "deep-research",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/deep-research",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/deep-research",
       "destination": "deep-research",
       "files": 3,
       "embeddedAgentFiles": 0
@@ -188,7 +230,7 @@
     {
       "kind": "skill",
       "name": "docs",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docs",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/docs",
       "destination": "docs",
       "files": 1,
       "embeddedAgentFiles": 0
@@ -196,7 +238,7 @@
     {
       "kind": "skill",
       "name": "docx",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/docx",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/docx",
       "destination": "docx",
       "files": 61,
       "embeddedAgentFiles": 0
@@ -204,7 +246,7 @@
     {
       "kind": "skill",
       "name": "google-workspace",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/google-workspace",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/google-workspace",
       "destination": "google-workspace",
       "files": 9,
       "embeddedAgentFiles": 0
@@ -212,47 +254,23 @@
     {
       "kind": "skill",
       "name": "import-memory",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/import-memory",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/import-memory",
       "destination": "import-memory",
       "files": 1,
       "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
-      "name": "learn",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/learn",
-      "destination": "learn",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "mcp-builder",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/mcp-builder",
-      "destination": "mcp-builder",
-      "files": 10,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "morning",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/morning",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/morning",
       "destination": "morning",
       "files": 3,
       "embeddedAgentFiles": 0
     },
     {
       "kind": "skill",
-      "name": "oleg-tone-of-voice",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/oleg-tone-of-voice",
-      "destination": "oleg-tone-of-voice",
-      "files": 3,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
       "name": "pdf",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/pdf",
+      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/pdf",
       "destination": "pdf",
       "files": 12,
       "embeddedAgentFiles": 0
@@ -260,72 +278,8 @@
     {
       "kind": "skill",
       "name": "pptx",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/pptx",
-      "destination": "pptx",
-      "files": 57,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "skill-creator",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/skill-creator",
-      "destination": "skill-creator",
-      "files": 18,
-      "embeddedAgentFiles": 3
-    },
-    {
-      "kind": "skill",
-      "name": "xlsx",
-      "source": "~/.claude/skills/synced/1a6d2be0-4eb4-478b-9828-405d5118cd8b_61764344-5a4f-4f1b-bec5-b8d9ca77aa0a/xlsx",
-      "destination": "xlsx",
-      "files": 53,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "built-in-browser",
-      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/built-in-browser",
-      "destination": "variants/global/claude/skills/built-in-browser",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "computer-use",
-      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/computer-use",
-      "destination": "variants/global/claude/skills/computer-use",
-      "files": 2,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "docx",
-      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/docx",
-      "destination": "variants/global/claude/skills/docx",
-      "files": 61,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "google-workspace",
-      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/google-workspace",
-      "destination": "variants/global/claude/skills/google-workspace",
-      "files": 9,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "pdf",
-      "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/pdf",
-      "destination": "variants/global/claude/skills/pdf",
-      "files": 12,
-      "embeddedAgentFiles": 0
-    },
-    {
-      "kind": "skill",
-      "name": "pptx",
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/pptx",
-      "destination": "variants/global/claude/skills/pptx",
+      "destination": "pptx",
       "files": 58,
       "embeddedAgentFiles": 0
     },
@@ -333,7 +287,7 @@
       "kind": "skill",
       "name": "skill-creator",
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/skill-creator",
-      "destination": "variants/global/claude/skills/skill-creator",
+      "destination": "skill-creator",
       "files": 18,
       "embeddedAgentFiles": 3
     },
@@ -341,7 +295,7 @@
       "kind": "skill",
       "name": "xlsx",
       "source": "~/.claude/skills/synced/b9778a78-5d07-4f62-bd40-0b9049f29240_7a196b21-4f1f-4983-b4e5-3600c7969c08/xlsx",
-      "destination": "variants/global/claude/skills/xlsx",
+      "destination": "xlsx",
       "files": 53,
       "embeddedAgentFiles": 0
     },
@@ -358,7 +312,7 @@
       "name": "weekly-report",
       "source": "~/.claude/skills/weekly-report",
       "destination": "weekly-report",
-      "files": 18,
+      "files": 22,
       "embeddedAgentFiles": 0
     },
     {
@@ -397,7 +351,7 @@
       "kind": "skill",
       "name": "oleg-tone-of-voice",
       "source": "~/.codex/skills/oleg-tone-of-voice",
-      "destination": "variants/global/codex/skills/oleg-tone-of-voice",
+      "destination": "oleg-tone-of-voice",
       "files": 4,
       "embeddedAgentFiles": 1
     },
@@ -459,10 +413,26 @@
     },
     {
       "kind": "skill",
+      "name": "excalidraw",
+      "source": "Mashina.kg/.claude/skills/excalidraw",
+      "destination": "projects/mashina-kg/skills/excalidraw",
+      "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
       "name": "job-graph-figjam",
       "source": "Mashina.kg/.claude/skills/job-graph-figjam",
       "destination": "projects/mashina-kg/skills/job-graph-figjam",
       "files": 3,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "mashina-dwh",
+      "source": "Mashina.kg/.claude/skills/mashina-dwh",
+      "destination": "projects/mashina-kg/skills/mashina-dwh",
+      "files": 5,
       "embeddedAgentFiles": 0
     },
     {
@@ -527,6 +497,14 @@
       "source": "Mashina.kg/.claude/skills/nmt-update",
       "destination": "projects/mashina-kg/skills/nmt-update",
       "files": 1,
+      "embeddedAgentFiles": 0
+    },
+    {
+      "kind": "skill",
+      "name": "product-film",
+      "source": "Mashina.kg/.claude/skills/product-film",
+      "destination": "projects/mashina-kg/skills/product-film",
+      "files": 46,
       "embeddedAgentFiles": 0
     },
     {
